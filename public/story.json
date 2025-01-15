@@ -1,0 +1,44 @@
+[
+    {
+      "image": "https://example.com/images/couple1.jpg",
+      "date": "2023-04-15",
+      "rating": 4,
+      "story": "We found each other here and couldn't be happier. Thank you for bringing us together!"
+    },
+    {
+      "image": "https://example.com/images/male1.jpg",
+      "date": "2022-09-30",
+      "rating": 4,
+      "story": "A wonderful experience finding my soulmate. Truly grateful for this platform."
+    },
+    {
+      "image": "https://example.com/images/female1.jpg",
+      "date": "2023-06-10",
+      "rating": 3,
+      "story": "From strangers to partners for life, this journey has been magical."
+    },
+    {
+      "image": "https://example.com/images/couple2.jpg",
+      "date": "2023-02-14",
+      "rating": 4.5,
+      "story": "It was love at first sight, thanks to this amazing service."
+    },
+    {
+      "image": "https://example.com/images/male2.jpg",
+      "date": "2021-12-25",
+      "rating": 4,
+      "story": "We met during the holidays and instantly clicked. Forever grateful!"
+    },
+    {
+      "image": "https://example.com/images/female2.jpg",
+      "date": "2022-08-08",
+      "rating": 5,
+      "story": "Finding love was never this easy. This platform changed my life."
+    },
+    {
+      "image": "https://example.com/images/couple3.jpg",
+      "date": "2023-01-01",
+      "rating": 5,
+      "story": "Starting the new year with a lifetime of love and happiness."
+    }
+]

@@ -1,0 +1,67 @@
+[
+    {
+      "id": 1,
+      "type": "Male",
+      "image": "https://via.placeholder.com/150",
+      "division": "Dhaka",
+      "Age": 23,
+      "Occupation": "Software Engineer"
+    },
+    {
+      "id": 2,
+      "type": "Female",
+      "image": "https://via.placeholder.com/150",
+      "division": "Chattagram",
+      "Age": 45,
+      "Occupation": "Teacher"
+    },
+    {
+      "id": 3,
+      "type": "Male",
+      "image": "https://via.placeholder.com/150",
+      "division": "Rangpur",
+      "Age": 30,
+      "Occupation": "Doctor"
+    },
+    {
+      "id": 4,
+      "type": "Female",
+      "image": "https://via.placeholder.com/150",
+      "division": "Barisal",
+      "Age": 23,
+      "Occupation": "Student"
+    },
+    {
+      "id": 5,
+      "type": "Male",
+      "image": "https://via.placeholder.com/150",
+      "division": "Khulna",
+      "Age": 45,
+      "Occupation": "Businessman"
+    },
+    {
+      "id": 6,
+      "type": "Female",
+      "image": "https://via.placeholder.com/150",
+      "division": "Mymensingh",
+      "Age": 30,
+      "Occupation": "Designer"
+    },
+    {
+      "id": 7,
+      "type": "Male",
+      "image": "https://via.placeholder.com/150",
+      "division": "Sylhet",
+      "Age": 23,
+      "Occupation": "Engineer"
+    },
+    {
+      "id": 8,
+      "type": "Female",
+      "image": "https://via.placeholder.com/150",
+      "division": "Dhaka",
+      "Age": 45,
+      "Occupation": "Artist"
+    }
+  ]
+  
