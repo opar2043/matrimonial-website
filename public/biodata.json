@@ -2,66 +2,66 @@
     {
       "id": 1,
       "type": "Male",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.ibb.co.com/YQzFsCv/clothes1.jpg",
       "division": "Dhaka",
-      "Age": 23,
-      "Occupation": "Software Engineer"
+      "age": 23,
+      "occupation": "Software Engineer"
     },
     {
       "id": 2,
       "type": "Female",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://ibb.co.com/PMbprcR",
       "division": "Chattagram",
-      "Age": 45,
-      "Occupation": "Teacher"
+      "age": 45,
+      "occupation": "Teacher"
     },
     {
       "id": 3,
       "type": "Male",
-      "image": "https://via.placeholder.com/150",
+      "image": "https://i.ibb.co.com/6wsnPX0/clothes9.jpg",
       "division": "Rangpur",
-      "Age": 30,
-      "Occupation": "Doctor"
+      "age": 30,
+      "occupation": "Doctor"
     },
     {
       "id": 4,
       "type": "Female",
       "image": "https://via.placeholder.com/150",
       "division": "Barisal",
-      "Age": 23,
-      "Occupation": "Student"
+      "age": 23,
+      "occupation": "Student"
     },
     {
       "id": 5,
       "type": "Male",
       "image": "https://via.placeholder.com/150",
       "division": "Khulna",
-      "Age": 45,
-      "Occupation": "Businessman"
+      "age": 45,
+      "occupation": "Businessman"
     },
     {
       "id": 6,
       "type": "Female",
       "image": "https://via.placeholder.com/150",
       "division": "Mymensingh",
-      "Age": 30,
-      "Occupation": "Designer"
+      "age": 30,
+      "occupation": "Designer"
     },
     {
       "id": 7,
       "type": "Male",
       "image": "https://via.placeholder.com/150",
       "division": "Sylhet",
-      "Age": 23,
-      "Occupation": "Engineer"
+      "age": 23,
+      "occupation": "Engineer"
     },
     {
       "id": 8,
       "type": "Female",
       "image": "https://via.placeholder.com/150",
       "division": "Dhaka",
-      "Age": 45,
-      "Occupation": "Artist"
+      "age": 45,
+      "occupation": "Artist"
     }
   ]
   

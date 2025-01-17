@@ -32,6 +32,13 @@ const Navbar = () => {
           <a>Contact</a>
         </li>
       </NavLink>
+      {
+        user &&  <NavLink to={"/dashboard"}>
+        <li>
+          <a>Dashboard</a>
+        </li>
+      </NavLink>
+      }
     </>
   );
 
@@ -84,13 +91,13 @@ const Navbar = () => {
         )}
 
         {/* Home Drop down */}
-        <div className="dropdown dropdown-end">
+        <div className="dropdown ml-3 dropdown-end">
           <div
             tabIndex={0}
             role="button"
             className="btn btn-ghost btn-circle avatar"
           >
-            <div className="w-10  rounded-full">
+            <div className="w-12  rounded-full">
               {
                 user ?<img
                 alt="Tailwind CSS Navbar component"

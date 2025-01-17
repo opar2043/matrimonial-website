@@ -6,6 +6,7 @@ import { Autoplay, Pagination, Navigation } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { FaCar, FaSave } from "react-icons/fa";
 
 const Successstory = () => {
   const [review] = useReview();
@@ -33,11 +34,11 @@ const Successstory = () => {
         {review.map((item, idx) => (
           <SwiperSlide key={idx}>
             <div className="bg-white shadow-xl rounded-lg p-6 max-w-3xl mx-auto">
-              <h3 className="text-xl font-semibold text-gray-700 mb-2">
-                {item.title || "A Journey to Success"}
+              <h3 className="text-xl flex items-center gap-2  font-semibold text-gray-700 mb-2">
+               <FaCar></FaCar> {item.title || "A Journey to Success"}
               </h3>
-              <div className="mb-4">
-                <span className="text-sm px-4 py-1 text-gray-800 bg-gradient-to-r from-yellow-200 via-yellow-300 to-yellow-400 rounded-md shadow-sm hover:shadow-md transition-all">
+              <div className="mb-4 pt-2">
+                <span className="text-sm px-4 py-2 text-gray-800 bg-gradient-to-r from-yellow-200 via-yellow-300 to-orange-300 rounded-md shadow-sm hover:shadow-md transition-all">
                   <span className="font-bold text-black">Date:</span>{" "}
                   {item.date}
                 </span>

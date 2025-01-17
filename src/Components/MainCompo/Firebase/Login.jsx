@@ -13,7 +13,7 @@ const Login = () => {
     //  const name = form.name.value;
     const email = form.email.value;
     const pass = form.pass.value;
-    const photo = form.photo.value;
+    
 
     logInUser(email, pass)
       .then((userCredential) => {
@@ -21,7 +21,7 @@ const Login = () => {
         console.log(userInfo);
         setUser(userInfo);
         Swal.fire({
-          title: `Logged In! ${name}`,
+          title: `Logged In!`,
           text: "Succesfull",
           icon: "success",
         });
@@ -36,8 +36,7 @@ const Login = () => {
       });
 
     const userData = {
-      name,
-      photo,
+      // name,
       pass,
       email,
     };
@@ -66,6 +65,7 @@ const Login = () => {
             type="email"
             variant="outlined"
             className="bg-gray-50"
+            name="email"
           />
           <TextField
             fullWidth
@@ -73,6 +73,7 @@ const Login = () => {
             type="password"
             variant="outlined"
             className="bg-gray-50"
+            name="pass"
           />
           <Button
             type="submit"
