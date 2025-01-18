@@ -4,7 +4,7 @@ import { NavLink, Outlet, useParams } from "react-router-dom";
 
 const Dashboard = () => {
   const {id} = useParams()
-  const isAdmin = false;
+  const isAdmin = true;
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* Sidebar */}
@@ -13,12 +13,12 @@ const Dashboard = () => {
         <ul className="flex flex-col gap-2">
           {isAdmin ? (
             <>
-              <NavLink to="/admin-home">
+              <NavLink to="/dashboard/adminhome">
                 <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
                   Admin Home
                 </li>
               </NavLink>
-              <NavLink to="/manage-user">
+              <NavLink to="/dashboard/manageuser">
                 <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
                   Manage User
                 </li>
@@ -28,7 +28,7 @@ const Dashboard = () => {
                   Approved Premium
                 </li>
               </NavLink>
-              <NavLink to="/approved-contact">
+              <NavLink to="/dashboard/admincontact">
                 <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
                   Approved Contact
                 </li>

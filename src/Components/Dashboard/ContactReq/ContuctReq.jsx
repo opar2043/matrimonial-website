@@ -1,13 +1,16 @@
 import React from "react";
 import Swal from "sweetalert2";
 import useAxios from "../../Hooks/useAxios";
-import useContact from "../../Hooks/useContact";
+// import useContact from "../../Hooks/useContact";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
+import useContuct from "../../Hooks/useContuct";
 
 const ContuctReq = () => {
-  const [payments, fetch, ispending] = useContact() || [];
+  const [payments, fetch, isLoading] = useContuct() || [];
   const axiosSecure = useAxios();
+
+  console.log(payments);
 
   function handleDelete(id) {
     console.log(id);
@@ -35,9 +38,16 @@ const ContuctReq = () => {
               });
             }
           })
-          // .catch((err) => {
-          //   console.log(err);
-          // });
+          .catch((err) => {
+            console.log(err);
+            Swal.fire({
+              position: "top-end",
+              icon: "error",
+              title: `Something Happend Wrong!`,
+              showConfirmButton: false,
+              timer: 1500,
+            });
+          });
       }
     });
   }
@@ -126,7 +136,7 @@ const ContuctReq = () => {
           </tr>
         </thead>
         <tbody>
-          {ispending ? (
+          {isLoading ? (
             <tr>
               <td colSpan="6" className="text-center py-4">
                 <div className="flex items-center justify-center">

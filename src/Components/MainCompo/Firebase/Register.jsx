@@ -2,9 +2,11 @@ import { Button, TextField } from "@mui/material";
 import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
+import useAxios from "../../Hooks/useAxios";
 
 const Register = () => {
   const { setUser, createUser, userProfileUpdate } = useAuth();
+  const axiosSecure = useAxios()
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -45,7 +47,15 @@ const Register = () => {
       photo,
       pass,
       email,
+      userRole: 'User',
+      admin: 'Not-admin',
+      status: 'Pending'
     };
+
+    axiosSecure.post('/users', userData)
+    .then(res => {
+      console.log(res.data);
+    })
 
     console.log(userData);
   }

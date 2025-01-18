@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
 import { useParams } from "react-router-dom";
 import useBiodata from "../../Hooks/useBiodata";
+import useUser from "../../Hooks/useUser";
 
 const Payment = ({id}) => {
   const {user} = useAuth()
@@ -19,6 +20,10 @@ const Payment = ({id}) => {
  
   const [biodata] = useBiodata() || [];
   const data = biodata.find((bio) => bio._id === id);
+
+   const [users] = useUser()
+   const userData = users && users.find((bio) => bio?.email === user.email);
+  console.log(userData , 'payment email');
 
   useEffect(()=> {
       axiosSecure.post('/create-payment-intent', {price})
@@ -89,17 +94,23 @@ const Payment = ({id}) => {
 
             // now save the info from database =============
             const payment = {
-              email: user?.email ,
+              userData: userData?.email ,
               price: price,
               transection: paymentIntent?.id,
               status: 'pending',
+              biodata: 1,
+              admin: userData?.admin,
+              userrole: userData?.userrole,
               ownername: data?.name,
-              ownerEmail: data?.email,
+              // ownerEmail: data?.email,
               biodataId: data?.bioId,
               mobile: data?.mobile,
               age: data?.age,
-              occupation: data?.occupation
+              occupation: data?.occupation,
+              
             }
+
+            console.log(payment);
 
             axiosSecure.post('/payments', payment)
             .then(res => {

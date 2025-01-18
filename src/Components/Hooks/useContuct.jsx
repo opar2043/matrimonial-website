@@ -4,14 +4,14 @@ import { useQuery } from '@tanstack/react-query';
 
 const useContuct = () => {
     const axiosSecure = useAxios();
-    const { data: contuct, fetch, ispending} = useQuery({
+    const { data: contuct,  refetch, isLoading} = useQuery({
       queryKey: ["contuct"],
       queryFn: async () => {
         const res = await axiosSecure.get('/contuct');
         return res.data;
       },
     });
-    return [contuct, fetch, ispending];
+    return [contuct,  refetch, isLoading];
 }
 
 export default useContuct

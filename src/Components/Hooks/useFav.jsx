@@ -3,14 +3,14 @@ import useAxios from "./useAxios";
 
 const useFav = () => {
   const axiosSecure = useAxios();
-  const { data: favourate, fetch, ispending} = useQuery({
+  const { data: favourate,  refetch, ispending} = useQuery({
     queryKey: ["favourate"],
     queryFn: async () => {
       const res = await axiosSecure.get("/favourate");
       return res.data;
     },
   });
-  return [favourate, fetch, ispending];
+  return [favourate,  refetch, ispending];
 };
 
 export default useFav;

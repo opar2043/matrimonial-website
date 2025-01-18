@@ -29,6 +29,9 @@ import ViewData from "./Components/Dashboard/ViewBioData/ViewData.jsx";
 import Checkout from "./Components/Dashboard/ViewBioData/Checkout.jsx";
 import MyBio from "./Components/Dashboard/EditBio/MyBio.jsx";
 import GotMarried from "./Components/Dashboard/GotMarried/GotMarried.jsx";
+import ManageUser from "./Components/Dashboard/ManageUser/ManageUser.jsx";
+import ContuctApproved from "./Components/Dashboard/AdminContuct/ContuctApproved.jsx";
+import AdminHome from "./Components/Dashboard/AdminHome/AdminHome.jsx";
 
 const router = createBrowserRouter([
   {
@@ -103,6 +106,21 @@ const router = createBrowserRouter([
         loader: ({ params }) =>
           fetch(`http://localhost:5000/biodata/${params.id}`),
       },
+
+
+      // admin route 
+      {
+        path: '/dashboard/manageuser',
+        element: <ManageUser></ManageUser>
+      },
+      {
+        path: '/dashboard/adminhome',
+        element: <AdminHome></AdminHome>
+      },
+      {
+        path: '/dashboard/admincontact',
+        element: <ContuctApproved></ContuctApproved>
+      }
     ],
   },
 ]);
