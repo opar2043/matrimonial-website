@@ -1,10 +1,23 @@
 import React from "react";
 import { FaTasks } from "react-icons/fa";
 import { NavLink, Outlet, useParams } from "react-router-dom";
+import useAuth from "../Hooks/useAuth";
+import useUser from "../Hooks/useUser";
+import Loading from "../Shared/Loading";
 
 const Dashboard = () => {
-  const {id} = useParams()
-  const isAdmin = true;
+  const {user} = useAuth();
+  const [users , refetch ,isLoading] = useUser();
+  if(isLoading){
+    return <Loading></Loading>
+  }
+
+  const CurrenUser = users.find(u => u.email == user?.email);
+  // console.log(CurrenUser);
+
+  const isAdmin = CurrenUser?.admin == 'admin' ;
+  console.log(isAdmin);
+  
   return (
     <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
       {/* Sidebar */}

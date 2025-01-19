@@ -1,8 +1,16 @@
 import React from 'react'
+import AboutMatrimoni from './AboutMatrimoni'
+import Faq from './Faq'
+import ChosingPartner from './ChosingPartner'
 
 const About = () => {
   return (
-    <div>About</div>
+    <div>
+    <AboutMatrimoni></AboutMatrimoni>
+    <ChosingPartner></ChosingPartner>
+    <Faq></Faq>
+
+    </div>
   )
 }
 

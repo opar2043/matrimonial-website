@@ -14,17 +14,18 @@ import {
 const AdminHome = () => {
   const [state, refetch, isLoading] = useState();
   const { biodata, users, successStory, revinew, boys, girls } = state || {};
+  refetch()
 
   const pieData = [
-    { id: 0, value: state?.biodata, label: "Total BioData" },
+    { id: 0, value: state?.biodata, label: "Total Bio" },
     { id: 1, value: state?.boys, label: "Male BioData" },
     { id: 2, value: state?.girls, label: "Female BioData" },
     { id: 3, value: state?.revinew, label: "Revenue ($)" },
   ];
 
   const barData = [
-    { name: 'Revenue', uv: state.revinew },
-    { name: 'Users', uv: state.users },
+    { name: 'Revenue', uv: state?.revinew },
+    { name: 'Users', uv: state?.users },
   ];
 
   const COLORS = ["#0088FE", "#00C49F", "#FFBB28", "#FF8042"];
@@ -63,12 +64,14 @@ const AdminHome = () => {
           </h1>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Total Bio Data */}
+            
             <StatCard
               icon={<BsClipboard2DataFill />}
               title="Total Bio Data"
               value={biodata}
               description="Many More Have to Come"
               gradient="from-purple-500 to-pink-500"
+              
             />
 
             {/* Total Users */}

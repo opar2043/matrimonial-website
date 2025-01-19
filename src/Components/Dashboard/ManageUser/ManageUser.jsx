@@ -55,17 +55,17 @@ const ManageUser = () => {
       confirmButtonText: "Yes!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosPub.patch(`/users/${id}`)
+        axiosSecure.patch(`/users/premium/${id}`)
         .then(res => {
           if (res.data.modifiedCount > 0){
             Swal.fire({
               position: "top-end",
               icon: "success",
-              title: `This User is Now Admin`,
+              title: `This User is Premium`,
               showConfirmButton: false,
               timer: 1500
             });
-            fetch()
+            refetch()
           }
         })
         .catch(err => {
