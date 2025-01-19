@@ -7,7 +7,7 @@ const useContuct = () => {
     const { data: contuct,  refetch, isLoading} = useQuery({
       queryKey: ["contuct"],
       queryFn: async () => {
-        const res = await axiosSecure.get('/contuct');
+        const res = await axiosSecure.get('/payments');
         return res.data;
       },
     });

@@ -7,6 +7,8 @@ const MyBio = () => {
     const {user} = useAuth();
     const [biodata] = useBiodata([]) || [];
     const favourate = biodata.filter(bio => bio?.email == user?.email);
+
+    
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">

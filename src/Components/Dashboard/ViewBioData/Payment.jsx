@@ -17,13 +17,13 @@ const Payment = ({id}) => {
   const elements = useElements();
   const axiosSecure = useAxios()
   const price = 5;
- 
+  console.log(user , 'auith');
   const [biodata] = useBiodata() || [];
   const data = biodata.find((bio) => bio._id === id);
-
+  console.log(data);
    const [users] = useUser()
    const userData = users && users.find((bio) => bio?.email === user.email);
-  console.log(userData , 'payment email');
+   console.log(userData , 'payment email');
 
   useEffect(()=> {
       axiosSecure.post('/create-payment-intent', {price})
@@ -94,7 +94,6 @@ const Payment = ({id}) => {
 
             // now save the info from database =============
             const payment = {
-              userData: userData?.email ,
               price: price,
               transection: paymentIntent?.id,
               status: 'pending',
@@ -102,13 +101,14 @@ const Payment = ({id}) => {
               admin: userData?.admin,
               userrole: userData?.userrole,
               ownername: data?.name,
-              // ownerEmail: data?.email,
+              ownerEmail: data?.email,
               biodataId: data?.bioId,
               mobile: data?.mobile,
               age: data?.age,
-              occupation: data?.occupation,
-              
+              occupation: data?.occupation, 
+              email: user?.email          
             }
+
 
             console.log(payment);
 

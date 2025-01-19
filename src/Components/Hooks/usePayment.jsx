@@ -4,11 +4,7 @@ import usePublic from "./usePublic";
 
 const usePayment = () => {
   const axiosSecure = usePublic();
-  const {
-    data: payments,
-    refetch,
-    isLoading,
-  } = useQuery({
+  const {data: payments ,refetch,isLoading} = useQuery({
     queryKey: ["payments"],
     queryFn: async () => {
       const res = await axiosSecure.get("/payments");

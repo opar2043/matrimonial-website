@@ -16,12 +16,15 @@ import useAuth from "../../Hooks/useAuth";
 import useUser from "../../Hooks/useUser";
 import Loading from "../../Shared/Loading";
 import { FaMapMarkerAlt } from "react-icons/fa";
+import { height } from "@mui/system";
 
 const ViewData = () => {
   const { id } = useParams();
   const [biodata] = useBiodata() || [];
   const axiosSecure = useAxios();
   const { user } = useAuth();
+
+  console.log(user);
 
   const [users, refetch, isLoading] = useUser();
   if (isLoading) {
@@ -30,35 +33,42 @@ const ViewData = () => {
 
   const CurrenUser = users.find((u) => u.email == user?.email);
   const isRole = CurrenUser?.userRole == "premimum";
-  console.log(isRole);
-  console.log(CurrenUser);
+  // console.log(isRole);
+  // console.log(CurrenUser);
 
   const data = biodata.find((bio) => bio._id === id);
+  const updatedData = { ...data, userEmail: user?.email };
+    console.log(updatedData, 'updated item with email');
   const {
-    name = "N/A",
+    name ,
     image,
-    age = "N/A",
-    father = "N/A",
-    mother = "N/A",
-    partnerAge = "N/A",
-    partnerHeight = "N/A",
-    mobile = "N/A",
-    gender = "N/A",
-    date = "N/A",
-    height = "N/A",
-    weight = "N/A",
-    occupation = "N/A",
-    race = "N/A",
-    division = "N/A",
-    presentdivision = "N/A",
-    partnerWeight = "N/A",
+    age ,
+    father ,
+    mother ,
+    partnerAge ,
+    partnerHeight ,
+    mobile ,
+    gender ,
+    date ,
+    height ,
+    weight ,
+    occupation ,
+    race ,
+    division ,
+    presentdivision ,
+    partnerWeight ,
     email,
+    
   } = data || {};
 
-  function addFav(item) {
-    console.log(item);
+  console.log(data);
 
-    axiosSecure.post("/favourate", item).then((res) => {
+  function addFav(item) {
+
+    const updatedData = { ...item, userEmail: user?.email };
+    // console.log(updatedData, 'updated item with email');
+
+    axiosSecure.post("/favourate", updatedData).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",

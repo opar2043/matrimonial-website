@@ -7,7 +7,7 @@ const ContuctApproved = () => {
   const [payments,  refetch, isPending] = usePayment()
   const axiosSecure = useAxios();
 
-  console.log(payments);
+  console.log(payments , 'user');
 
     function handleApproved(id) {
       console.log(id);
@@ -91,7 +91,7 @@ const ContuctApproved = () => {
                 <td className="px-6 py-4 font-medium text-gray-900">
                   {item.ownername}
                 </td>
-                <td className="px-6 py-4">{item?.userData || "Not Provided"}</td>
+                <td className="px-6 py-4">{item?.email|| "Not Provided"}</td>
                 <td className="px-6 py-4 flex items-center space-x-2">
                   {item.age}
                 </td>

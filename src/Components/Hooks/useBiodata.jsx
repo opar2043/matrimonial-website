@@ -6,7 +6,7 @@ const useBiodata = () => {
 
   useEffect(() => {
     fetch("http://localhost:5000/biodata")
-    // fetch("biodata.json")
+    //  fetch("biodata.json")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

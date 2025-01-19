@@ -5,12 +5,17 @@ import useAxios from "../../Hooks/useAxios";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
 import useContuct from "../../Hooks/useContuct";
+import useAuth from "../../Hooks/useAuth";
 
 const ContuctReq = () => {
-  const [payments, fetch, isLoading] = useContuct() || [];
+  const [payments , refetch , isLoading] = useContuct([])
   const axiosSecure = useAxios();
+  // console.log(payments);
+  const {user} = useAuth()
 
-  console.log(payments);
+  const finduser = payments && payments.filter(pay => pay?.email == user?.email);
+  // console.log(finduser);
+
 
   function handleDelete(id) {
     console.log(id);
@@ -52,75 +57,6 @@ const ContuctReq = () => {
     });
   }
   return (
-    // <div>
-    //   <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-    //     <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-    //       <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    //         <tr>
-    //           <th scope="col" className="px-6 py-3">
-    //             Name
-    //           </th>
-    //           <th scope="col" className="px-6 py-3">
-    //             Occupatcion
-    //           </th>
-    //           <th scope="col" className="px-6 py-3">
-    //             Email
-    //           </th>
-    //           <th scope="col" className="px-6 py-3">
-    //             Mobile
-    //           </th>
-    //           <th scope="col" className="px-6 py-3">
-    //             age
-    //           </th>
-    //           <th scope="col" className="px-6 py-3">
-    //             Action
-    //           </th>
-    //         </tr>
-    //       </thead>
-    //       <tbody>
-    //         {payments &&
-    //           payments.map((item, idx) => (
-    //             <tr
-    //               key={item._id}
-    //               className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700"
-    //             >
-    //               <th
-    //                 scope="row"
-    //                 className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white"
-    //               >
-    //                 <span className="mr-1">({idx + 1}) </span> {item.ownername}
-    //               </th>
-    //               <td className="px-6 py-4">
-    //                 {item?.occupation || "Not Given"}
-    //               </td>
-    //               <td
-    //                 className={`px-6 py-4 ${
-    //                   item.status === "approved" ? "bg-green-200 rounded-lg" : "bg-blue-400 rounded-lg"
-    //                 }`}
-    //               >
-    //                 <span>{item.status}</span>
-    //               </td>
-    //               <td className="px-6 py-4">
-    //                 {item.status === "approved" ? item?.email : "Make Payment"}
-    //               </td>
-    //               <td className="px-6 py-4">
-    //                 {item.status === "approved" ? item?.mobile : "Make Payment"}
-    //               </td>
-    //               <td className="px-6 py-4 flex gap-3 items-center ">
-    //                 <button
-    //                   onClick={() => handleDelete(item._id)}
-    //                   className="btn btn-xs p-1 text-white rounded-xl  bg-red-500"
-    //                 >
-    //                   <FaTrash></FaTrash>
-    //                 </button>
-    //               </td>
-    //             </tr>
-    //           ))}
-    //       </tbody>
-    //     </table>
-    //   </div>
-    // </div>
-
     <div className="p-6 bg-gray-100 min-h-screen">
     <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Requests</h2>
     <div className="relative overflow-x-auto shadow-md rounded-lg">
@@ -145,8 +81,8 @@ const ContuctReq = () => {
                 </div>
               </td>
             </tr>
-          ) : payments && payments.length > 0 ? (
-            payments.map((item, idx) => (
+          ) : finduser && finduser.length > 0 ? (
+            finduser.map((item, idx) => (
               <tr
                 key={item._id}
                 className="border-b odd:bg-white even:bg-gray-50 dark:border-gray-700"
@@ -172,7 +108,7 @@ const ContuctReq = () => {
                 </td>
                 <td className="px-6 py-4">
                   {item.status === "approved" ? (
-                    <span className="text-gray-700">{item?.email}</span>
+                    <span className="text-gray-700 font-semibold">{item?.userData || 'email@gmail.com'}</span>
                   ) : (
                     <span className="text-red-500 font-semibold">
                       Make Payment
@@ -181,7 +117,7 @@ const ContuctReq = () => {
                 </td>
                 <td className="px-6 py-4">
                   {item.status === "approved" ? (
-                    <span className="text-gray-700">{item?.mobile}</span>
+                    <span className="text-gray-700 font-semibold">{item?.mobile}</span>
                   ) : (
                     <span className="text-red-500 font-semibold">
                       Make Payment
