@@ -71,7 +71,6 @@ const ManageUser = () => {
         .catch(err => {
           console.log(err);
         })
-
       }
     });
   }

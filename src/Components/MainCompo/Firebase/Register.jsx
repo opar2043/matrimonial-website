@@ -3,6 +3,7 @@ import { NavLink } from "react-router-dom";
 import useAuth from "../../Hooks/useAuth";
 import Swal from "sweetalert2";
 import useAxios from "../../Hooks/useAxios";
+import { BiRegistered } from "react-icons/bi";
 
 const Register = () => {
   const { setUser, createUser, userProfileUpdate } = useAuth();
@@ -62,7 +63,7 @@ const Register = () => {
 
   return (
     <div>
-      <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-red-200 via-red-400 to-orange-400 py-8">
+      <div className="min-h-screen my-10 flex items-center justify-center bg-gradient-to-br from-red-200 via-red-400 to-orange-400 py-8">
         <div className="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
           <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-8">
             Register Account
@@ -109,7 +110,7 @@ const Register = () => {
               disableElevation
               className="bg-blue-600 hover:bg-blue-700 font-bold hover:text-white text-black py-3 rounded-lg transition-all"
             >
-              Register
+              <BiRegistered className="mr-3"></BiRegistered> Register
             </Button>
           </form>
           <p className="text-center text-gray-600 mt-6 text-sm">

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useBiodata from "../../Hooks/useBiodata";
 import useUser from "../../Hooks/useUser";
 
@@ -17,13 +17,14 @@ const Payment = ({id}) => {
   const elements = useElements();
   const axiosSecure = useAxios()
   const price = 5;
-  console.log(user , 'auith');
+  const navigate = useNavigate()
+
   const [biodata] = useBiodata() || [];
   const data = biodata.find((bio) => bio._id === id);
-  console.log(data);
-   const [users] = useUser()
-   const userData = users && users.find((bio) => bio?.email === user.email);
-   console.log(userData , 'payment email');
+  console.log(data , 'data');
+  //  const [users] = useUser()
+  //  const userData = users && users.find((bio) => bio?.email === user.email);
+  //  console.log(userData , 'payment email');
 
   useEffect(()=> {
       axiosSecure.post('/create-payment-intent', {price})
@@ -95,20 +96,16 @@ const Payment = ({id}) => {
             // now save the info from database =============
             const payment = {
               price: price,
-              transection: paymentIntent?.id,
               status: 'pending',
               biodata: 1,
-              admin: userData?.admin,
-              userrole: userData?.userrole,
               ownername: data?.name,
-              ownerEmail: data?.email,
-              biodataId: data?.bioId,
+              email: data?.email || 'user@gmail.com',
+              biodataId: data?.biodataId,
               mobile: data?.mobile,
               age: data?.age,
-              occupation: data?.occupation, 
-              email: user?.email          
+              occupation: data?.occupation,
+              userEmail: user?.email                     
             }
-
 
             console.log(payment);
 
@@ -123,72 +120,98 @@ const Payment = ({id}) => {
                   showConfirmButton: false,
                   timer: 1000,
                 });
+                navigate('/dashboard/contact')
               }
             })
         }
       }
   };
   return (
-    <div>
-      <form
-        onSubmit={handleSubmit}
-        className="max-w-2xl mx-auto bg-white shadow-md p-6 rounded-lg border border-gray-200"
-      >
-        <h1 className="text-xl font-bold mb-4 text-gray-700 text-center">
-          Complete Your Payment
-        </h1>
 
-        {/* Card Element */}
-        <div className="mb-6">
-          <label className="block text-sm font-medium text-gray-700 mb-2">
-            Card Details
-          </label>
-          <div className="border rounded-md p-3 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
-            <CardElement
-              options={{
-                style: {
-                  base: {
-                    fontSize: "16px",
-                    color: "#424770",
-                    "::placeholder": {
-                      color: "#aab7c4",
-                    },
-                  },
-                  invalid: {
-                    color: "#9e2146",
-                  },
+
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-blue-50 via-purple-50 to-pink-50">
+  <form
+    onSubmit={handleSubmit}
+    className="max-w-lg w-full bg-white shadow-lg rounded-lg p-8 border border-gray-300"
+  >
+    <h1 className="text-2xl font-extrabold mb-6 text-gray-800 text-center">
+      Complete Your Payment
+    </h1>
+
+    {/* Card Element */}
+    <div className="mb-6">
+      <label className="block text-sm font-medium text-gray-700 mb-2">
+        Email Address
+      </label>
+      <input
+        type="email"
+        name="email"
+        placeholder="Enter your email"
+        defaultValue={user?.email}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+      />
+
+      <label className="block text-sm font-medium text-gray-700 mt-4 mb-2">
+        BioData ID
+      </label>
+      <input
+        type="number"
+        name="number"
+        placeholder="Enter transaction number"
+        defaultValue={data?.biodataId}
+        className="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent"
+      />
+
+      <label className="block text-sm font-medium text-gray-700 mt-4 mb-2">
+        Card Details
+      </label>
+      <div className="border rounded-lg p-4 shadow-sm focus-within:ring-2 focus-within:ring-blue-500 focus-within:border-blue-500">
+        <CardElement
+          options={{
+            style: {
+              base: {
+                fontSize: "16px",
+                color: "#424770",
+                "::placeholder": {
+                  color: "#aab7c4",
                 },
-              }}
-            />
-          </div>
-        </div>
-
-        {/* Submit Button */}
-        <button
-          type="submit"
-          disabled={!stripe || isLoading || !clientSecret }
-          className={`w-full py-2 px-4 rounded-md text-white font-semibold ${
-            isLoading || !stripe
-              ? "bg-gray-400 cursor-not-allowed"
-              : "bg-blue-600 hover:bg-blue-700"
-          }`}
-        >
-          {isLoading ? "Processing..." : "Pay"}
-        </button>
-
-        {/* Message Display */}
-        {message && (
-          <div className="mt-4 p-3 text-sm text-center text-green-700 bg-green-100 rounded-lg">
-           <span className="text-green-600 font-semibold">Transection ID : </span> {message}
-          </div>
-        )}
-        {err && (
-          <div className="mt-4 p-3 text-sm text-center text-red-700 bg-green-100 rounded-lg">
-            {err}
-          </div>
-        )}
-      </form>
+              },
+              invalid: {
+                color: "#9e2146",
+              },
+            },
+          }}
+        />
+      </div>
     </div>
+
+    {/* Submit Button */}
+    <button
+      type="submit"
+      disabled={!stripe || isLoading || !clientSecret}
+      className={`w-full py-3 px-6 rounded-lg text-white font-bold transition ${
+        isLoading || !stripe
+          ? "bg-gray-400 cursor-not-allowed"
+          : "bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700"
+      }`}
+    >
+      {isLoading ? "Processing..." : "Pay"}
+    </button>
+
+    {/* Message Display */}
+    {message && (
+      <div className="mt-6 p-4 text-sm text-center text-green-800 bg-green-100 rounded-lg shadow">
+        <span className="font-bold">Transaction ID:</span> {message}
+      </div>
+    )}
+    {err && (
+      <div className="mt-6 p-4 text-sm text-center text-red-800 bg-red-100 rounded-lg shadow">
+        {err}
+      </div>
+    )}
+  </form>
+</div>
+
   );
 };
 

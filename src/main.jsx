@@ -32,6 +32,9 @@ import GotMarried from "./Components/Dashboard/GotMarried/GotMarried.jsx";
 import ManageUser from "./Components/Dashboard/ManageUser/ManageUser.jsx";
 import ContuctApproved from "./Components/Dashboard/AdminContuct/ContuctApproved.jsx";
 import AdminHome from "./Components/Dashboard/AdminHome/AdminHome.jsx";
+import Premimum from "./Components/Dashboard/Premium/Premimum.jsx";
+import AdminRoute from "./Components/MainCompo/Provider/AdminRoute.jsx";
+import PrivateRoute from "./Components/MainCompo/Biodata/privateRoute/PrivateRoute.jsx";
 
 const router = createBrowserRouter([
   {
@@ -68,58 +71,73 @@ const router = createBrowserRouter([
         path: "/register",
         element: <Register></Register>,
       },
+      {
+        path: "/view/:id",
+        element: <PrivateRoute><ViewData></ViewData></PrivateRoute>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/biodata/${params.id}`),
+      },
     ],
   },
   {
     path: "/dashboard",
-    element: <Dashboard></Dashboard>,
+    element: <PrivateRoute><Dashboard></Dashboard></PrivateRoute>,
     children: [
       {
         path: "/dashboard/create",
-        element: <CreateBio></CreateBio>,
+        element: <PrivateRoute><CreateBio></CreateBio></PrivateRoute>,
+      },
+      {
+        path: "/dashboard/edit",
+        element: <PrivateRoute><Editbio></Editbio></PrivateRoute>,
       },
       {
         path: "/dashboard/mybio",
-        element: <MyBio></MyBio>
+        element: <PrivateRoute><MyBio></MyBio></PrivateRoute>
       },
       {
         path: "/dashboard/gotmarried",
-        element: <GotMarried></GotMarried>
+        element: <PrivateRoute><GotMarried></GotMarried></PrivateRoute>
       },
       {
         path: "/dashboard/contact",
-        element: <ContuctReq></ContuctReq>,
+        element: <PrivateRoute><ContuctReq></ContuctReq></PrivateRoute>,
       },
       {
         path: "/dashboard/favourate",
-        element: <Favourate></Favourate>,
+        element: <PrivateRoute><Favourate></Favourate></PrivateRoute>,
       },
       {
         path: "/dashboard/edit/:id",
-        element: <Editbio></Editbio>,
+        element: <PrivateRoute><Editbio></Editbio></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`http://localhost:5000/biodata/${params.id}`),
       },
-      {
-        path: "/dashboard/view/:id",
-        element: <ViewData></ViewData>,
-        loader: ({ params }) =>
-          fetch(`http://localhost:5000/biodata/${params.id}`),
-      },
-
 
       // admin route 
       {
         path: '/dashboard/manageuser',
-        element: <ManageUser></ManageUser>
+        element: <AdminRoute>
+          <PrivateRoute><ManageUser></ManageUser></PrivateRoute>
+        </AdminRoute>
       },
       {
         path: '/dashboard/adminhome',
-        element: <AdminHome></AdminHome>
+        element: <AdminRoute>
+          <PrivateRoute><AdminHome></AdminHome></PrivateRoute>
+        </AdminRoute>
       },
       {
         path: '/dashboard/admincontact',
-        element: <ContuctApproved></ContuctApproved>
+        element: <AdminRoute>
+          <PrivateRoute><ContuctApproved></ContuctApproved></PrivateRoute>
+        </AdminRoute>
+      },
+      {
+        path: '/dashboard/premium',
+        element: <AdminRoute> 
+          <PrivateRoute><Premimum></Premimum></PrivateRoute>
+        </AdminRoute>
       }
     ],
   },

@@ -12,7 +12,7 @@ const img_main_key=`https://api.imgbb.com/1/upload?expiration=600&key=${img_api}
 
 const CreateBio = () => {
   const { user } = useAuth();
-  let newId = 0;
+  
   const axiosSecure = useAxios()
 
   // const [biodata , setBiodata] = useState([])
@@ -40,7 +40,7 @@ const CreateBio = () => {
     "Sylhet",
   ];
 
-  newId += 1;
+  
   function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
@@ -75,7 +75,7 @@ const CreateBio = () => {
       partnerWeight,
       role: 'user',
       email: user?.email,
-      bioID: newId
+      
     };
     console.table(bioData);
 

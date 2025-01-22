@@ -1,11 +1,37 @@
 import { Button, TextField } from "@mui/material";
-import React from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState } from "react";
+import { Navigate, NavLink, useLocation, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
+import { FaGoogle } from "react-icons/fa6";
 
 const Login = () => {
-  const { setUser, logInUser } = useAuth();
+  const { setUser, logInUser , googleSignIn} = useAuth();
+  const [err , setErr] = useState(null)
+  const navigate = useNavigate()
+  const location = useLocation()
+  console.log(location);
+  const from = location?.state;
+
+
+  function makeGoogle(){
+    googleSignIn()
+    .then((result) => {
+      
+      const user = result.user;
+      Swal.fire({
+        title: `Google Logged In`,
+        text: "Succesfull",
+        icon: "success",
+      });
+      setUser(user); 
+      navigate( from || '/');
+
+    }).catch((error) => {
+      const errorMessage = error.message;
+      setErr(errorMessage)
+    });
+  }
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -13,6 +39,14 @@ const Login = () => {
     //  const name = form.name.value;
     const email = form.email.value;
     const pass = form.pass.value;
+
+
+    const passwordRegex = /^(?=.*[A-Z]).{7}$/;
+
+    // if (!passwordRegex.test(pass)) {
+    //   setErr("Password must contain at least one capital letter and be 7 characters long.");
+    //   return;
+    // }
     
 
     logInUser(email, pass)
@@ -25,14 +59,11 @@ const Login = () => {
           text: "Succesfull",
           icon: "success",
         });
+        navigate( from || '/');
       })
       .catch((error) => {
         const errorMessage = error.message;
-        Swal.fire({
-          title: `Sorry! ${name}`,
-          text: "Something Happen Wrong",
-          icon: "error",
-        });
+        setErr(errorMessage)
       });
 
     const userData = {
@@ -40,11 +71,10 @@ const Login = () => {
       pass,
       email,
     };
-
-    console.log(userData);
+   form.reset()
   }
   return (
-    <div className="min-h-screen py-10 flex items-center justify-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-600">
+    <div className="min-h-screen my-10 py-10 flex items-center justify-center bg-gradient-to-br from-blue-200 via-blue-400 to-blue-600">
       <div className="bg-white shadow-xl rounded-lg p-8 w-full max-w-md">
         <h2 className="text-3xl font-extrabold text-center text-gray-800 mb-8">
           Welcome Back
@@ -53,28 +83,24 @@ const Login = () => {
           Please log in to your account
         </p>
         <form className="space-y-6" onSubmit={handleSubmit}>
-          {/* <TextField
-            fullWidth
-            label="Name"
-            variant="outlined"
-            className="bg-gray-50"
-          /> */}
+
           <TextField
             fullWidth
             label="Email"
             type="email"
             variant="outlined"
-            className="bg-gray-50"
+             className="bg-gray-50 "
             name="email"
           />
           <TextField
             fullWidth
             label="Password"
             type="password"
-            variant="outlined"
             className="bg-gray-50"
+            variant="outlined"
             name="pass"
-          />
+          />  
+          {<p className="text-red-500 text-xs text-center">{err}</p>}       
           <Button
             type="submit"
             fullWidth
@@ -84,6 +110,10 @@ const Login = () => {
           >
             Log In
           </Button>
+      <div className="divider">OR</div>
+          <div className="text-center text-2xl">
+          <button onClick={()=>makeGoogle()} className="btn btn-outline w-full"><FaGoogle></FaGoogle>Google</button>
+          </div>
         </form>
         <p className="text-center text-gray-600 mt-6 text-sm">
           Don't have an account?{" "}

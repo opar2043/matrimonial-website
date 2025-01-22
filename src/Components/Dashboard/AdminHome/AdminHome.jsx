@@ -14,7 +14,7 @@ import {
 const AdminHome = () => {
   const [state, refetch, isLoading] = useState();
   const { biodata, users, successStory, revinew, boys, girls } = state || {};
-  refetch()
+
 
   const pieData = [
     { id: 0, value: state?.biodata, label: "Total Bio" },

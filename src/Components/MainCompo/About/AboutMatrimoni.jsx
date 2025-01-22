@@ -4,7 +4,7 @@ const AboutMatrimoni = () => {
   return (
     <div>
       <div>
-    <section className="bg-gradient-to-r from-pink-400 via-gray-800  to-slate-950 text-white">
+    <section className="bg-gradient-to-r from-green-400 via-gray-800  to-slate-950 text-white my-8 rounded-md">
   <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
     <div className="mx-auto max-w-3xl text-center">
       <h1
@@ -26,7 +26,6 @@ const AboutMatrimoni = () => {
         >
           Get Started
         </a>
-
         <a
           className="block w-full rounded border border-yellow-400 px-12 py-3 text-sm font-medium text-white hover:bg-yellow-400 focus:outline-none focus:ring active:bg-blue-500 sm:w-auto"
           href="#"

@@ -1,12 +1,12 @@
 import axios from "axios"
 
-const axiosSecure = axios.create({
-    baseURL: 'http://localhost:5000'
-})
+const axiosInstance = axios.create({
+    baseURL: 'http://localhost:5000', // Backend server URL
+  });
 
 const useAxios = () => {
 
-   return axiosSecure;
+   return axiosInstance;
 }
 
 export default useAxios

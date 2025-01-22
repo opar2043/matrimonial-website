@@ -1,12 +1,10 @@
+import React from 'react'
 
-
-import { Link } from "react-router-dom";
-
-const Cards = ({ bio }) => {
-  const { gender, image, division, occupation, age, _id, name } = bio || {}
-
+const PremiumCard = ({bio}) => {
+    const { gender, image, division, occupation, age, _id, name } = bio || {}
   return (
-    <div className="flex justify-center p-4">
+    <div>
+            <div className="flex justify-center p-4">
       <div
         href="#"
         className="block border rounded-lg p-4 shadow-sm shadow-indigo-100"
@@ -113,7 +111,8 @@ const Cards = ({ bio }) => {
         </div>
       </div>
     </div>
-  );
-};
+    </div>
+  )
+}
 
-export default Cards;
+export default PremiumCard

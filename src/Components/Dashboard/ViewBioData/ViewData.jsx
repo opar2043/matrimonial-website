@@ -17,58 +17,72 @@ import useUser from "../../Hooks/useUser";
 import Loading from "../../Shared/Loading";
 import { FaMapMarkerAlt } from "react-icons/fa";
 import { height } from "@mui/system";
+import usePayment from "../../Hooks/usePayment";
+import usePublic from "../../Hooks/usePublic";
 
 const ViewData = () => {
   const { id } = useParams();
-  const [biodata] = useBiodata() || [];
-  const axiosSecure = useAxios();
   const { user } = useAuth();
-
-  console.log(user);
-
+  const [biodata] = useBiodata() || [];
   const [users, refetch, isLoading] = useUser();
+  const axiosSecure = usePublic();
+
+  const [payments, ,] = usePayment([]);
+  // console.log(payments , 'payment');
+  // console.log(biodata , 'biodata');
+  // console.log(user.email);
+  // console.log(users , 'users');
+
   if (isLoading) {
     return <Loading></Loading>;
   }
 
   const CurrenUser = users.find((u) => u.email == user?.email);
   const isRole = CurrenUser?.userRole == "premimum";
-  // console.log(isRole);
-  // console.log(CurrenUser);
+
+  const finduser =
+    payments && payments.filter((pay) => pay?.userEmail == user?.email);
+  console.log(finduser, "find Userr Payment");
+
+  console.log(isRole);
+  // console.log(CurrenUser,'current user');
 
   const data = biodata.find((bio) => bio._id === id);
   const updatedData = { ...data, userEmail: user?.email };
-    console.log(updatedData, 'updated item with email');
+  // console.log(updatedData, "updated item with email");
+
   const {
-    name ,
+    name,
     image,
-    age ,
-    father ,
-    mother ,
-    partnerAge ,
-    partnerHeight ,
-    mobile ,
-    gender ,
-    date ,
-    height ,
-    weight ,
-    occupation ,
-    race ,
-    division ,
-    presentdivision ,
-    partnerWeight ,
+    age,
+    father,
+    mother,
+    partnerAge,
+    partnerHeight,
+    mobile,
+    gender,
+    date,
+    height,
+    weight,
+    occupation,
+    race,
+    division,
+    presentdivision,
+    partnerWeight,
     email,
-    
   } = data || {};
 
-  console.log(data);
+  const isPending =
+    finduser && finduser.find((use) => use?.email == data?.email);
+  console.log(isPending, "ispending");
+
+  console.log(data, "data");
 
   function addFav(item) {
-
-    const updatedData = { ...item, userEmail: user?.email };
-    // console.log(updatedData, 'updated item with email');
-
-    axiosSecure.post("/favourate", updatedData).then((res) => {
+    console.log(item);
+    const newData = { ...item, userEmail: user?.email };
+    console.log(newData, "new item with email");
+    axiosSecure.post("/favourate", newData).then((res) => {
       if (res.data.insertedId) {
         Swal.fire({
           position: "top-end",
@@ -82,7 +96,7 @@ const ViewData = () => {
   }
 
   return (
-<div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-50 via-pink-50 to-blue-50 py-12 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-r from-purple-50 via-pink-50 to-blue-50 py-12 px-4">
       <div className="max-w-4xl w-full bg-white rounded-lg shadow-lg overflow-hidden">
         {/* Image Section */}
         <img
@@ -136,7 +150,9 @@ const ViewData = () => {
               <span className="font-semibold">Partner's Age:</span> {partnerAge}
             </p>
             <p>
-              <span className="font-semibold">Expected Partner's Division:</span>{" "}
+              <span className="font-semibold">
+                Expected Partner's Division:
+              </span>{" "}
               {division}
             </p>
             <p>
@@ -149,7 +165,7 @@ const ViewData = () => {
             </p>
             <p>
               <span className="font-semibold">Mobile:</span>{" "}
-              {isRole ? (
+              {isRole || isPending?.status == "approved" ? (
                 mobile
               ) : (
                 <span className="text-blue-500 italic">Premium users only</span>
@@ -157,7 +173,7 @@ const ViewData = () => {
             </p>
             <p>
               <span className="font-semibold">Email:</span>{" "}
-              {isRole ? (
+              {isRole || isPending?.status == "approved" ? (
                 email
               ) : (
                 <span className="text-blue-500 italic">Premium users only</span>
@@ -166,32 +182,33 @@ const ViewData = () => {
           </div>
 
           {/* Action Buttons */}
+
           <div className="mt-8 flex flex-col md:flex-row gap-4">
-  <div className="w-full">
-    {!isRole ? (
-      <Link
-      className="w-full"
-        to={`/checkout/${id}`}
+            <div className="w-full">
+              { !isRole ? (
+                <Link className="w-full" to={`/checkout/${id}`}>
+                  <button className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2">
+                    {" "}
+                    Contact <FaPhone />
+                  </button>
+                </Link>
+              ) : (
+                <button className="w-full px-4 py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white font-semibold rounded-lg hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 flex items-center justify-center gap-2">
+                  <FaUser></FaUser>  {isPending?.status == "pending" ? 'Premium User' :  'You Paid This'}
+                </button>
+              )} 
 
-      >
-       <button className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2"> Contact <FaPhone /></button>
-      </Link>
-    ) : (
-<button className="w-full px-4 py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white font-semibold rounded-lg hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 flex items-center justify-center gap-2">
-  Premium User <FaUser></FaUser>
-</button>
-    )}
-  </div>
-  <div className="w-full">
-    <button
-      onClick={() => addFav(data)}
-      className="w-full px-4 py-3 border border-pink-600 text-pink-600 rounded-lg hover:bg-pink-100 flex items-center justify-center gap-2"
-    >
-      Add to Favorites <FaHeart />
-    </button>
-  </div>
-</div>
-
+                  
+            </div>
+            <div className="w-full">
+              <button
+                onClick={() => addFav(data)}
+                className="w-full px-4 py-3 border border-pink-600 text-pink-600 rounded-lg hover:bg-pink-100 flex items-center justify-center gap-2"
+              >
+                Add to Favorites <FaHeart />
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

@@ -4,17 +4,19 @@ import useAxios from "../../Hooks/useAxios";
 // import useContact from "../../Hooks/useContact";
 import { Link } from "react-router-dom";
 import { FaTrash } from "react-icons/fa";
-import useContuct from "../../Hooks/useContuct";
 import useAuth from "../../Hooks/useAuth";
+import usePayment from "../../Hooks/usePayment";
 
 const ContuctReq = () => {
-  const [payments , refetch , isLoading] = useContuct([])
+  const [payments , refetch , isLoading] = usePayment([]) || []
+  console.log(payments , 'payments');
   const axiosSecure = useAxios();
   // console.log(payments);
-  const {user} = useAuth()
+  const {user} = useAuth();
 
-  const finduser = payments && payments.filter(pay => pay?.email == user?.email);
-  // console.log(finduser);
+  const finduser = payments && payments.filter(pay => pay?.userEmail == user?.email);
+  console.log(finduser);
+
 
 
   function handleDelete(id) {
@@ -41,6 +43,7 @@ const ContuctReq = () => {
                 showConfirmButton: false,
                 timer: 1500,
               });
+              refetch ()
             }
           })
           .catch((err) => {
@@ -56,9 +59,13 @@ const ContuctReq = () => {
       }
     });
   }
+  
   return (
     <div className="p-6 bg-gray-100 min-h-screen">
-    <h2 className="text-2xl font-semibold text-gray-800 mb-4">Contact Requests</h2>
+      <div className=" p-2 rounded-lg shadow-md mb-6 flex justify-between">
+        <h2 className="text-3xl font-bold text-blue-800">Contact Requests</h2>
+        <span className=" mt-2 text-sm font-semibold py-1 rounded-lg px-4 bg-blue-300">Welcome, {user?.email}</span>
+      </div>
     <div className="relative overflow-x-auto shadow-md rounded-lg">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
@@ -108,7 +115,7 @@ const ContuctReq = () => {
                 </td>
                 <td className="px-6 py-4">
                   {item.status === "approved" ? (
-                    <span className="text-gray-700 font-semibold">{item?.userData || 'email@gmail.com'}</span>
+                    <span className="text-gray-700 font-semibold">{item?.email || 'email@gmail.com'}</span>
                   ) : (
                     <span className="text-red-500 font-semibold">
                       Make Payment

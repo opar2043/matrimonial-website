@@ -1,44 +1,74 @@
 [
-    {
-      "image": "https://example.com/images/couple1.jpg",
-      "date": "2023-04-15",
-      "rating": 4,
-      "story": "We found each other here and couldn't be happier. Thank you for bringing us together!"
-    },
-    {
-      "image": "https://example.com/images/male1.jpg",
-      "date": "2022-09-30",
-      "rating": 4,
-      "story": "A wonderful experience finding my soulmate. Truly grateful for this platform."
-    },
-    {
-      "image": "https://example.com/images/female1.jpg",
-      "date": "2023-06-10",
-      "rating": 3,
-      "story": "From strangers to partners for life, this journey has been magical."
-    },
-    {
-      "image": "https://example.com/images/couple2.jpg",
-      "date": "2023-02-14",
-      "rating": 4.5,
-      "story": "It was love at first sight, thanks to this amazing service."
-    },
-    {
-      "image": "https://example.com/images/male2.jpg",
-      "date": "2021-12-25",
-      "rating": 4,
-      "story": "We met during the holidays and instantly clicked. Forever grateful!"
-    },
-    {
-      "image": "https://example.com/images/female2.jpg",
-      "date": "2022-08-08",
-      "rating": 5,
-      "story": "Finding love was never this easy. This platform changed my life."
-    },
-    {
-      "image": "https://example.com/images/couple3.jpg",
-      "date": "2023-01-01",
-      "rating": 5,
-      "story": "Starting the new year with a lifetime of love and happiness."
-    }
+  {
+    "image": "https://placeimg.com/640/480/people",
+    "date": "2023-02-14",
+    "rating": 5,
+    "story": "Celebrating love this Valentine's Day with our sweetest memories."
+  },
+  {
+    "image": "https://placeimg.com/640/480/nature",
+    "date": "2023-03-01",
+    "rating": 4,
+    "story": "A serene walk in the woods, surrounded by the beauty of nature."
+  },
+  {
+    "image": "https://placeimg.com/640/480/architecture",
+    "date": "2023-04-10",
+    "rating": 5,
+    "story": "Exploring the charm of ancient architecture in the heart of the city."
+  },
+  {
+    "image": "https://placeimg.com/640/480/animals",
+    "date": "2023-05-21",
+    "rating": 4,
+    "story": "A sunny day at the safari, making friends with some curious animals."
+  },
+  {
+    "image": "https://placeimg.com/640/480/tech",
+    "date": "2023-06-15",
+    "rating": 5,
+    "story": "An exciting visit to the tech fair, discovering futuristic gadgets."
+  },
+  {
+    "image": "https://placeimg.com/640/480/grayscale",
+    "date": "2023-07-04",
+    "rating": 3,
+    "story": "A reflective Independence Day spent enjoying the black-and-white photography exhibit."
+  },
+  {
+    "image": "https://placeimg.com/640/480/people",
+    "date": "2023-08-12",
+    "rating": 5,
+    "story": "Cherishing the reunion with childhood friends after so many years."
+  },
+  {
+    "image": "https://placeimg.com/640/480/nature",
+    "date": "2023-09-20",
+    "rating": 5,
+    "story": "Capturing the vibrant hues of fall during a hike in the mountains."
+  },
+  {
+    "image": "https://placeimg.com/640/480/architecture",
+    "date": "2023-10-31",
+    "rating": 4,
+    "story": "A spooky Halloween night spent exploring a haunted mansion."
+  },
+  {
+    "image": "https://placeimg.com/640/480/animals",
+    "date": "2023-11-25",
+    "rating": 5,
+    "story": "Volunteering at the local animal shelter and spreading love to furry friends."
+  },
+  {
+    "image": "https://placeimg.com/640/480/tech",
+    "date": "2023-12-05",
+    "rating": 4,
+    "story": "A productive day at the robotics workshop, building something extraordinary."
+  },
+  {
+    "image": "https://placeimg.com/640/480/people",
+    "date": "2023-12-31",
+    "rating": 5,
+    "story": "Ringing in the New Year surrounded by family, love, and laughter."
+  }
 ]

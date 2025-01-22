@@ -1,12 +1,12 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import useAxios from '../../Hooks/useAxios';
 import Swal from 'sweetalert2';
 import usePayment from '../../Hooks/usePayment';
 
 const ContuctApproved = () => {
-  const [payments,  refetch, isPending] = usePayment()
+  const [payments,  refetch, isPending] = usePayment();
+  // console.log(payments);
   const axiosSecure = useAxios();
-
   console.log(payments , 'user');
 
     function handleApproved(id) {
@@ -57,7 +57,7 @@ const ContuctApproved = () => {
               Name
             </th>
             <th scope="col" className="px-6 py-4">
-              Email
+             partner's Email
             </th>
             <th scope="col" className="px-6 py-4">
                Age

@@ -1,18 +1,33 @@
 import React from "react";
-import { FaTasks } from "react-icons/fa";
-import { NavLink, Outlet, useParams } from "react-router-dom";
+import { FaHome, FaTasks } from "react-icons/fa";
+import { Link, NavLink, Outlet, useParams } from "react-router-dom";
 import useAuth from "../Hooks/useAuth";
 import useUser from "../Hooks/useUser";
 import Loading from "../Shared/Loading";
-
+import { FaBook, FaBookOpen, FaCertificate, FaFaceGrinHearts, FaUsers } from "react-icons/fa6";
+import { TbPremiumRights } from "react-icons/tb";
+import { ImportContacts, IosShare } from "@mui/icons-material";
+import { BiCommentDetail, BiLogOut } from "react-icons/bi";
+import { IoHomeSharp } from "react-icons/io5";
+import { IoIosContacts } from "react-icons/io";
+import { MdRateReview } from "react-icons/md";
+import useBiodata from "../Hooks/useBiodata";
 const Dashboard = () => {
-  const {user} = useAuth();
+  // const {user} = useAuth();
+  const { user, logoutUser, setUser } = useAuth();
+  const [biodata ] = useBiodata();
+  const currentBidata = biodata && biodata.find(bio => bio?.email == user?.email);
+  console.log(currentBidata);
+  function handleLogOut() {
+    logoutUser();
+    setUser(null);
+  }
   const [users , refetch ,isLoading] = useUser();
   if(isLoading){
     return <Loading></Loading>
   }
 
-  const CurrenUser = users.find(u => u.email == user?.email);
+  const CurrenUser = users?.find(u => u.email == user?.email);
   // console.log(CurrenUser);
 
   const isAdmin = CurrenUser?.admin == 'admin' ;
@@ -23,60 +38,64 @@ const Dashboard = () => {
       {/* Sidebar */}
       <div className="bg-gradient-to-b from-sky-700 to-sky-500 text-white md:w-1/5 w-full p-6">
         <h2 className="text-2xl font-bold text-center mb-8">Dashboard</h2>
-        <ul className="flex flex-col gap-2">
+        <ul className="flex flex-col gap-1">
           {isAdmin ? (
             <>
-              <NavLink to="/dashboard/adminhome">
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Admin Home
+           <NavLink to="/dashboard/adminhome">
+                <li className="hover:bg-sky-600 px-4 flex justify-left gap-1 items-center py-2 rounded-lg transition">
+                 <FaHome></FaHome> Admin Home
                 </li>
               </NavLink>
               <NavLink to="/dashboard/manageuser">
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Manage User
+                <li className="hover:bg-sky-600 px-4  flex justify-left gap-1 items-center py-2 rounded-lg transition">
+                 <FaUsers></FaUsers> Manage User
                 </li>
               </NavLink>
-              <NavLink to="/approved-premium">
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Approved Premium
+              <NavLink to="/dashboard/premium">
+                <li className="hover:bg-sky-600  flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                 <TbPremiumRights></TbPremiumRights> Approved Premium
                 </li>
               </NavLink>
               <NavLink to="/dashboard/admincontact">
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Approved Contact
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                <ImportContacts></ImportContacts> Approved Contact
                 </li>
               </NavLink>
-              <NavLink to="/logout">
-                <li className="hover:bg-red-600 px-4 py-2 rounded-lg transition">
-                  Log Out
+              <button  onClick={handleLogOut}>
+                <li className="hover:bg-red-600 flex gap-2 items-center px-4 py-3 font-semibold text-left rounded-lg transition">
+                 <BiLogOut></BiLogOut> Log Out
                 </li>
-              </NavLink>
+              </button>
             </>
           ) : (
             <>
-              <NavLink to='/dashboard/create'>
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Create Biodata
+            {currentBidata ?  <Link to={`/dashboard/edit/${currentBidata?._id}`}>
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                 <FaCertificate></FaCertificate> Edit Biodata
                 </li>
-              </NavLink>
+              </Link> :  <NavLink to='/dashboard/create'>
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                 <FaCertificate></FaCertificate> Create Biodata
+                </li>
+              </NavLink>}
               <NavLink to={`/dashboard/mybio`}>
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  View Biodata
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                 <FaBookOpen></FaBookOpen> View Biodata
                 </li>
               </NavLink>
               <NavLink to='/dashboard/contact'>
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Contact Request
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                <IoIosContacts />   Contact Request
                 </li>
               </NavLink>
               <NavLink to='/dashboard/favourate'>
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Favorite Bio
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                 <FaFaceGrinHearts></FaFaceGrinHearts> Favorite Bio
                 </li>
               </NavLink>
               <NavLink to='/dashboard/gotmarried'>
-                <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-                  Married Exprience
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                <MdRateReview /> Married Exprience
                 </li>
               </NavLink>
               <NavLink to="/logout">
@@ -89,23 +108,23 @@ const Dashboard = () => {
 
           <hr className="border-white/50 my-4" />
           <NavLink to="/">
-            <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-              Home
+            <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+            <IoHomeSharp /> Home
             </li>
           </NavLink>
           <NavLink to="/biodata">
-            <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-              Biodata
+            <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+             <FaBook></FaBook>  Biodata
             </li>
           </NavLink>
           <NavLink to="/about">
-            <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-              About
+            <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+            <BiCommentDetail /> About
             </li>
           </NavLink>
           <NavLink to="/contact">
-            <li className="hover:bg-sky-600 px-4 py-2 rounded-lg transition">
-              Contact
+            <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+            <IoIosContacts /> Contact
             </li>
           </NavLink>
         </ul>
@@ -114,7 +133,7 @@ const Dashboard = () => {
       {/* Main Content */}
       <div className="flex-1 p-5">
         <div className="bg-gradient-to-b from-sky-700 to-sky-500 text-white rounded-lg shadow-md p-3 text-center">
-          <h2 className="text-xl md:text-3xl font-bold flex gap-2 items-center justify-center"><FaTasks></FaTasks> Dashboard</h2>
+          <h2 className="text-xl md:text-3xl font-bold flex gap-1 items-center justify-center"><FaTasks></FaTasks> Dashboard</h2>
         </div>
         <div className="mt-8">
           <Outlet />

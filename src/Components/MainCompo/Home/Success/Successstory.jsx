@@ -12,8 +12,8 @@ const Successstory = () => {
   const [review] = useReview();
 
   return (
-    <div className="bg-gradient-to-b from-gray-100 to-gray-200 py-12 px-6 md:px-12">
-      <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-800 mb-8">
+    <div className="bg-gradient-to-b from-green-100 via-green-200 to-green-300 py-12 px-6 my-10 rounded-lg md:px-12">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center text-green-600 mb-8">
         Our Users' Successful Stories
       </h2>
 
@@ -33,7 +33,7 @@ const Successstory = () => {
       >
         {review.map((item, idx) => (
           <SwiperSlide key={idx}>
-            <div className="bg-white shadow-xl rounded-lg p-6 max-w-3xl mx-auto">
+            <div className="bg-gradient-to-b from-yellow-50  to-yellow-100 shadow-xl rounded-lg p-6 max-w-3xl mx-auto">
               <h3 className="text-xl flex items-center gap-2  font-semibold text-gray-700 mb-2">
                <FaCar></FaCar> {item.title || "A Journey to Success"}
               </h3>

@@ -4,14 +4,17 @@ import { FaTrash } from 'react-icons/fa';
 import Swal from 'sweetalert2';
 import useAxios from '../../Hooks/useAxios';
 import useAuth from '../../Hooks/useAuth';
+import Loading from '../../Shared/Loading';
 
 const Favourate = () => {
-   const [favourate , fetch , ispending] = useFav() || []
+   const [favourate , fetch , isLoading] = useFav() || [];
+   console.log(favourate);
    const {user} = useAuth()
    const axiosSecure = useAxios();
   //  console.log(favourate);
    
-   const favData = favourate && favourate.filter(fav => fav?.userEmail == user?.email)
+   const favData = favourate && favourate.filter(fav => fav?.userEmail == user?.email);
+   console.log(favData);
 
    function handleDelete(id){
       console.log(id);
@@ -73,7 +76,7 @@ const Favourate = () => {
             </tr>
         </thead>
         <tbody>
-            {
+            {isLoading ? <Loading></Loading> :
               favData && favData.map((item,idx )=> <tr key={item._id} className="odd:bg-white odd:dark:bg-gray-900 even:bg-gray-50 even:dark:bg-gray-800 border-b dark:border-gray-700">
                 <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
                     <span className='mr-1'>({idx+1}) </span>   {item.name} 
@@ -89,7 +92,7 @@ const Favourate = () => {
                 </td>
                 <td className="px-6 py-4 flex gap-3 items-center ">
                    <button onClick={()=>handleDelete(item._id)} className="btn btn-xs p-1 text-white rounded-xl  bg-red-500"><FaTrash></FaTrash></button>
-                    <Link  to={`/dashboard/view/${item._id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
+                    <Link  to={`/view/${item._id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
                 </td>
             </tr>)
             }
