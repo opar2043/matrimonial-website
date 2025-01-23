@@ -1,22 +1,25 @@
-import usePremiumBiodata from "../../Hooks/usePremiumBiodata"
-import Cards from "../Biodata/Card"
+import { useEffect, useState } from "react";
 import PremiumCard from "./PremiumCard";
 
 
-const PremiumBiodata = () => {
-    const [premiumbiodata,  refetch, isLoading] = usePremiumBiodata([]) || []
-    console.log(premiumbiodata);
-  return (
-    <div>
-        <h2>Our Premium Bio data  </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
-         {
-            premiumbiodata && premiumbiodata.map((bio,idx)=> {
-                <PremiumCard key={idx} bio={bio}></PremiumCard>
-            })
-         }
-      </div>
+const PremiumBiodata = () => {
+
+  const [premiumbiodata , setPremium] = useState([]);
+  useEffect(()=>{
+    fetch('https://make-marriege-server.vercel.app/premium-biodata')
+    .then(data => data.json())
+    .then(res => {
+      console.log(res);
+      setPremium(res.data)
+    })
+  },[])
+
+  console.log(premiumbiodata);
+
+  return (
+        
+    <div>
     </div>
   )
 }

@@ -4,7 +4,7 @@ const useReview = () => {
   const [review, setReview] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/success")
+    fetch("https://make-marriege-server.vercel.app/success")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

@@ -1,9 +1,8 @@
-
-
+import { FaUser } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 const Cards = ({ bio }) => {
-  const { gender, image, division, occupation, age, _id, name } = bio || {}
+  const { gender, image, division, occupation, age, _id, name , biodataId } = bio || {}
 
   return (
     <div className="flex justify-center p-4">
@@ -18,16 +17,27 @@ const Cards = ({ bio }) => {
         />
 
         <div className="mt-2">
-          <div>
-            <div>
-              <p className="sr-only ">Name</p>
-              <span className="text-md font-semibold  rounded-md py-0.5 px-4 ">
-                {name}
+          <div >
+            <div className="flex gap-1 justify-center">
+                <div>
+                <p className="sr-only ">Bio ID</p>
+              <span className="text-xs text-white bg-green-500 rounded-full  font-semibold  py-0.5 px-2 ">
+                {biodataId}
               </span>
+                </div>
+              <div>
+              <p className="sr-only ">Name</p>
+              <span className="text-md flex items-center gap-2 font-semibold  rounded-md py-0.5 px-4 ">
+               <FaUser className="text-xs"></FaUser> {name}
+              </span>
+              </div>
+              <div>
               <p className="sr-only bg-green-200">Gender</p>
               <span className="text-sm font-semibold text-gray-500 rounded-md py-0.5 px-4 bg-green-200">
                 {gender}
               </span>
+              </div>
+
             </div>
           </div>
 

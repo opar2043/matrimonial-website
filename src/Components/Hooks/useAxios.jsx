@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const axiosInstance = axios.create({
-    baseURL: 'http://localhost:5000', // Backend server URL
+    baseURL: 'https://make-marriege-server.vercel.app', // Backend server URL
   });
 
 const useAxios = () => {

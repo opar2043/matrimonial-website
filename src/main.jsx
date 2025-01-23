@@ -49,7 +49,7 @@ const router = createBrowserRouter([
         path: "/checkout/:id",
         element: <Checkout></Checkout>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/biodata/${params.id}`),
+          fetch(`https://make-marriege-server.vercel.app/biodata/${params.id}`),
       },
       {
         path: "/contact",
@@ -75,7 +75,7 @@ const router = createBrowserRouter([
         path: "/view/:id",
         element: <PrivateRoute><ViewData></ViewData></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/biodata/${params.id}`),
+          fetch(`https://make-marriege-server.vercel.app/biodata/${params.id}`),
       },
     ],
   },
@@ -111,7 +111,7 @@ const router = createBrowserRouter([
         path: "/dashboard/edit/:id",
         element: <PrivateRoute><Editbio></Editbio></PrivateRoute>,
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/biodata/${params.id}`),
+          fetch(`https://make-marriege-server.vercel.app/biodata/${params.id}`),
       },
 
       // admin route 

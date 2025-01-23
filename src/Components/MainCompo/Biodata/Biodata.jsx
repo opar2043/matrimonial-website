@@ -1,4 +1,5 @@
 import Card from "./Card";
+import { Select, Option } from "@material-tailwind/react";
 import useBiodata from "../../Hooks/useBiodata";
 import { useEffect, useState } from "react";
 
@@ -16,11 +17,12 @@ const Biodata = () => {
   const [biodata, setBiodata] = useState([]);
   //  const [age , setAge] = useState('')
   const [gender, setGnder] = useState("");
-  console.log(gender);
+  // console.log(gender);
   const [division, setDivision] = useState("");
-  console.log(division);
+  // console.log(division);
+
   useEffect(() => {
-    fetch(`http://localhost:5000/biodata?division=${division}&gender=${gender}`)
+    fetch(`https://make-marriege-server.vercel.app/biodata?division=${division}&gender=${gender}`)
       //  fetch("biodata.json")
       .then((res) => res.json())
       .then((data) => {
@@ -42,7 +44,8 @@ const Biodata = () => {
   return (
     <div className="bg-white shadow-lg rounded-lg p-6">
     <h2 className="text-xl font-semibold text-gray-800 mb-4">Filter Options</h2>
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 items-center ">
+
+    <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
         {/* Gender Selection */}
 
 
@@ -68,25 +71,10 @@ const Biodata = () => {
               <option value="Female">Female</option>
             </select>
           </div>
-    <div className="flex items-center">
-    <button onClick={sortBiodata} className="btn-outline btn">
-            Sort by Age
-          </button>
-    </div>
-        </div>
 
-        {/* Reset Button */}
-        <div className="w-full sm:w-auto">
-          <button
-            onClick={reset}
-            className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-pink-500 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform"
-          >
-            Reset All
-          </button>
-        </div>
 
         {/* Division Selection */}
-        <div className="w-full sm:w-auto">
+        <div className="w-full  sm:w-auto">
           <label
             htmlFor="division"
             className="block text-sm font-medium text-gray-700 mb-1"
@@ -110,7 +98,33 @@ const Biodata = () => {
             ))}
           </select>
         </div>
-      </div>
+        </div>
+
+        {/* Reset Button */}
+        <div className="flex flex-row gap-3">
+          
+        <div className="flex items-center">
+          <button onClick={sortBiodata} className="btn-outline btn">
+            Sort by Age
+          </button>
+          </div>
+          <button
+            onClick={reset}
+            className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-pink-500 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform"
+          >
+            Reset All
+          </button>
+
+        </div>
+       
+ 
+
+       {/* sort by age  */}
+
+      
+
+
+    </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
         {biodata.map((bio, idx) => (

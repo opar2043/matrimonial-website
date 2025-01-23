@@ -151,28 +151,28 @@ const Navbar = () => {
   const links = (
     <>
       <li>
-        <NavLink to="/" className={({ isActive }) => (isActive ? "active-link" : "")}>
+        <NavLink to="/" className={({ isActive }) => (isActive ? " bg-slate-900" : "")}>
           Home
         </NavLink>
       </li>
       <li>
-        <NavLink to="/biodata" className={({ isActive }) => (isActive ? "active-link" : "")}>
+        <NavLink to="/biodata" className={({ isActive }) => (isActive ? " bg-slate-900" : "")}>
           Biodata
         </NavLink>
       </li>
       <li>
-        <NavLink to="/about" className={({ isActive }) => (isActive ? "active-link" : "")}>
+        <NavLink to="/about" className={({ isActive }) => (isActive ? " bg-slate-900" : "")}>
           About
         </NavLink>
       </li>
       <li>
-        <NavLink to="/contact" className={({ isActive }) => (isActive ? "active-link" : "")}>
+        <NavLink to="/contact" className={({ isActive }) => (isActive ? " bg-slate-900" : "")}>
           Contact
         </NavLink>
       </li>
       {user && (
         <li>
-          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? "active-link" : "")}>
+          <NavLink to="/dashboard" className={({ isActive }) => (isActive ? " bg-slate-900" : "")}>
             Dashboard
           </NavLink>
         </li>
@@ -210,7 +210,10 @@ const Navbar = () => {
             {links}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl font-bold tracking-wide"> Shaadi.com</a>
+        <div className="flex gap-2 items-center"> 
+          <img src="https://i.ibb.co.com/zSqDs7b/logo.jpg" className="md:w-9 w-5 rounded-full" />
+          <h2 className="text-2xl md:text-4xl font-bold ">Sha<span className="text-yellow-300">adi</span>.com</h2>
+          </div>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1 gap-1">{links}</ul>

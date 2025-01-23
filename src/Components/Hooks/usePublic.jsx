@@ -1,7 +1,7 @@
 import axios from "axios"
 
 const axiosMine = axios.create({
-    baseURL: 'http://localhost:5000'
+    baseURL: 'https://make-marriege-server.vercel.app'
 })
 
 const usePublic = () => {

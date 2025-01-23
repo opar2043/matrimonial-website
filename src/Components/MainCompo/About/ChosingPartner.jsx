@@ -2,6 +2,8 @@ import { Face, Favorite } from "@mui/icons-material";
 
 const ChoosingPartner = () => {
     return (
+      <div>
+
 <section className="bg-white text-gray-900 py-16 my-12 rounded-lg shadow-lg">
   <div className="max-w-screen-xl mx-auto px-4">
     <h2 className="text-4xl font-bold text-center mb-10 text-green-500">
@@ -46,6 +48,60 @@ const ChoosingPartner = () => {
     </div>
   </div>
 </section>
+
+<div>
+  <section className="bg-gray-50 text-gray-900 py-16 my-12 rounded-lg shadow-lg">
+    <div className="max-w-screen-xl mx-auto px-4">
+      <h2 className="text-4xl font-bold text-center mb-10 text-green-500">
+        Building Stronger Connections
+      </h2>
+      <div className="flex flex-col md:flex-row items-center justify-between gap-12">
+        {/* Left Column: Description */}
+        <div className="md:w-1/2 text-center md:text-left">
+          <h3 className="text-2xl font-semibold mb-6 text-green-500">
+            Strengthen Bonds Through Shared Experiences
+          </h3>
+          <p className="text-lg text-gray-700 mb-6 leading-relaxed">
+            A lasting connection thrives on shared moments and experiences. 
+            Whether it’s traveling together, pursuing hobbies, or supporting 
+            each other’s dreams, it’s these moments that deepen bonds and 
+            create a meaningful partnership.
+          </p>
+          <p className="text-lg text-gray-700 leading-relaxed mb-6">
+            Our platform encourages couples to explore their compatibility 
+            through meaningful conversations, fun activities, and tools 
+            designed to help you discover new ways to connect with your partner.
+          </p>
+          <div className="flex justify-center md:justify-start gap-4">
+            <a
+              href="#"
+              className="inline-block bg-green-600 hover:bg-green-500 text-white font-medium px-6 py-3 rounded-lg shadow-md transition-colors duration-300"
+            >
+              Learn More
+            </a>
+            <a
+              href="#"
+              className="inline-block bg-gray-100 border border-gray-300 hover:bg-gray-200 text-gray-700 font-medium px-6 py-3 rounded-lg shadow-md transition-colors duration-300"
+            >
+              Explore Activities
+            </a>
+          </div>
+        </div>
+
+        {/* Right Column: Image */}
+        <div className="md:w-1/2 flex justify-center">
+          <img
+            src="https://i.ibb.co.com/74kDVgB/hdimg-2.webp" 
+            alt="Shared Experiences"
+            className="rounded-lg shadow-xl w-full hover:scale-105 transition-transform duration-300"
+          />
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+</div>
 
     );
   };
