@@ -110,7 +110,7 @@ const Biodata = () => {
           </div>
           <button
             onClick={reset}
-            className="w-full sm:w-auto bg-gradient-to-r from-red-500 to-pink-500 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform"
+            className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-violet-500 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform"
           >
             Reset All
           </button>

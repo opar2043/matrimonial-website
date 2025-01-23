@@ -89,7 +89,7 @@ const AdminHome = () => {
               title="Male Bio Data"
               value={boys}
               description="Make Your Journey Start Here"
-              gradient="from-green-500 to-teal-500"
+              gradient="from-violet-500 to-teal-500"
             />
 
             {/* Female Bio Data */}

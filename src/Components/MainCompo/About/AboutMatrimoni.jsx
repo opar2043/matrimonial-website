@@ -4,11 +4,11 @@ const AboutMatrimoni = () => {
   return (
     <div>
       <div>
-    <section className="bg-gradient-to-r from-green-400 via-gray-800  to-slate-950 text-white my-8 rounded-md">
+    <section className="bg-gradient-to-r from-violet-400 via-gray-800  to-slate-950 text-white my-8 rounded-md">
   <div className="mx-auto max-w-screen-xl px-4 py-32 lg:flex lg:h-screen lg:items-center">
     <div className="mx-auto max-w-3xl text-center">
       <h1
-        className="bg-gradient-to-r from-green-300 via-blue-500 to-purple-600 bg-clip-text  font-extrabold text-transparent text-3xl sm:text-5xl"
+        className="bg-gradient-to-r from-violet-300 via-blue-500 to-purple-600 bg-clip-text  font-extrabold text-transparent text-3xl sm:text-5xl"
       >
         Shaadi.com
 

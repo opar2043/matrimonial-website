@@ -3,7 +3,7 @@ import React from 'react';
 const AboutOurWebsite = () => {
   return (
     <div className="max-w-5xl mx-auto py-12 px-6 bg-white shadow-lg rounded-lg my-12">
-      <h2 className="text-3xl font-extrabold text-green-500 text-center mb-6">
+      <h2 className="text-3xl font-extrabold text-violet-700      text-center mb-6">
         Why This Is Benificial to You
       </h2>
       <p className="text-lg text-gray-600 leading-relaxed mb-4">

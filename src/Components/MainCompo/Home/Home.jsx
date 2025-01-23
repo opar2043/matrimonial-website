@@ -24,7 +24,7 @@ const Home = () => {
 
       <div>
         <div>
-          <h2 className="md:text-4xl text-green-500 text-xl text-center font-bold ">
+          <h2 className="md:text-4xl my-10 text-violet-700      text-xl text-center font-bold ">
             Our Premium Member{" "}
           </h2>
         </div>

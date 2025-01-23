@@ -2,9 +2,9 @@ import React from "react";
 
 const HowItWork = () => {
   return (
-    <div className="bg-gradient-to-r from-green-100 via-green-200 to-green-300 my-10 rounded-lg py-12 px-6">
+    <div className="bg-gradient-to-r from-violet-200 via-violet-300 to-violet-400 my-10 rounded-lg py-12 px-6">
       {/* Main Heading */}
-      <h2 className="text-4xl font-bold text-center text-green-600 mb-12">
+      <h2 className="text-4xl font-bold text-center text-violet-700 mb-12">
         How We Work
       </h2>
 
@@ -12,7 +12,7 @@ const HowItWork = () => {
       <div className="flex flex-col md:flex-row gap-12 justify-center items-center max-w-6xl mx-auto">
         {/* Description Section */}
         <div className="flex-1 bg-white p-6 rounded-lg shadow-md">
-          <h2 className="text-2xl font-semibold text-green-400  mb-4">
+          <h2 className="text-2xl font-semibold text-violet-700      mb-4">
             Find Your Perfect Life Partner
           </h2>
           <p className="text-gray-700">
@@ -24,32 +24,32 @@ const HowItWork = () => {
 
         {/* Steps Section */}
         <div className="flex-1 bg-white p-6 rounded-lg shadow-md">
-          <h3 className="text-xl font-bold text-green-400 mb-4">
+          <h3 className="text-xl font-bold text-violet-700     mb-4">
             Steps to Find Your Partner
           </h3>
           <ul className=" text-gray-800">
             <li className="flex items-start">
-              <span className="text-green-400 font-bold text-lg mr-2">1.</span>
+              <span className="text-violet-700     font-bold text-lg mr-2">1.</span>
               Register or Log in to your account.
             </li>
             <li className="flex items-start">
-              <span className="text-green-400 font-bold text-lg mr-2">2.</span>
+              <span className="text-violet-700     font-bold text-lg mr-2">2.</span>
               Search and browse verified profiles.
             </li>
             <li className="flex items-start">
-              <span className="text-green-400 font-bold text-lg mr-2">3.</span>
+              <span className="text-violet-700     font-bold text-lg mr-2">3.</span>
               Choose a partner that matches your preferences.
             </li>
             <li className="flex items-start">
-              <span className="text-green-400 font-bold text-lg mr-2">4.</span>
+              <span className="text-violet-700     font-bold text-lg mr-2">4.</span>
               Upgrade to Premium to connect.
             </li>
             <li className="flex items-start">
-              <span className="text-green-400 font-bold text-lg mr-2">5.</span>
+              <span className="text-violet-700     font-bold text-lg mr-2">5.</span>
               Communicate and discuss your future plans.
             </li>
             <li className="flex items-start">
-              <span className="text-green-400 font-bold text-lg mr-2">6.</span>
+              <span className="text-violet-700     font-bold text-lg mr-2">6.</span>
               Leave a review after marriage and inspire others!
             </li>
           </ul>
@@ -58,7 +58,7 @@ const HowItWork = () => {
 
       {/* New Section: Why Choose Us */}
       <div className="bg-white py-12 px-6 mt-16 rounded-lg shadow-md max-w-6xl mx-auto">
-        <h3 className="text-3xl font-bold text-center text-green-400 mb-6">
+        <h3 className="text-3xl font-bold text-center text-violet-700     mb-6">
           Why Choose Us?
         </h3>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-3 ">

@@ -200,7 +200,7 @@ const Payment = ({id}) => {
 
     {/* Message Display */}
     {message && (
-      <div className="mt-6 p-4 text-sm text-center text-green-800 bg-green-100 rounded-lg shadow">
+      <div className="mt-6 p-4 text-sm text-center text-violet-800 bg-violet-100 rounded-lg shadow">
         <span className="font-bold">Transaction ID:</span> {message}
       </div>
     )}

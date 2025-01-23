@@ -12,8 +12,8 @@ const Successstory = () => {
   const [review] = useReview();
 
   return (
-    <div className="bg-gradient-to-b from-green-100 via-green-200 to-green-300 py-12 px-6 my-10 rounded-lg md:px-12">
-      <h2 className="text-3xl md:text-4xl font-extrabold text-center text-green-600 mb-8">
+    <div className="bg-gradient-to-b from-violet-100 via-violet-200 to-violet-300 py-12 px-6 my-10 rounded-lg md:px-12">
+      <h2 className="text-3xl md:text-4xl font-extrabold text-center text-violet-600 mb-8">
         Our Users' Successful Stories
       </h2>
 

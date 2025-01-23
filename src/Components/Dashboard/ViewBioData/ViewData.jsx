@@ -109,7 +109,7 @@ const ViewData = () => {
         <div className="p-8">
           <h1 className="text-3xl font-bold text-gray-800 mb-4">{name}</h1>
           <div className="flex flex-wrap gap-4 mb-6">
-            <div className="flex items-center gap-2 px-3 py-1 bg-green-100 text-green-700 rounded-full">
+            <div className="flex items-center gap-2 px-3 py-1 bg-violet-100 text-violet-700 rounded-full">
               <FaBriefcase className="text-lg" />
               {occupation}
             </div>

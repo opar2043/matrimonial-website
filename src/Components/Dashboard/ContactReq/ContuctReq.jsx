@@ -107,7 +107,7 @@ const ContuctReq = () => {
                 <td >
                   <span  className={`px-5 py-1 text-center font-medium rounded-xl ${
                     item.status === "approved"
-                      ? "text-green-800 bg-green-100"
+                      ? "text-violet-800 bg-violet-100"
                       : "text-blue-800 bg-blue-100"
                   }`}>
                   {item.status}

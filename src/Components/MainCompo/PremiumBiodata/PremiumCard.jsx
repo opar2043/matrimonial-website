@@ -23,8 +23,8 @@ const PremiumCard = ({prem}) => {
                 <span className="text-md font-semibold  rounded-md py-0.5 px-4 ">
                   {name}
                 </span>
-                <p className="sr-only bg-green-200">Gender</p>
-                <span className="text-sm font-semibold text-gray-500 rounded-md py-0.5 px-4 bg-green-200">
+                <p className="sr-only bg-violet-200">Gender</p>
+                <span className="text-sm font-semibold text-gray-500 rounded-md py-0.5 px-4 bg-violet-200">
                   {gender}
                 </span>
               </div>
@@ -103,7 +103,7 @@ const PremiumCard = ({prem}) => {
             <div>
               <div className="pt-6 flex justify-center">
                 <Link to={`/view/${_id}`}>
-                  <button className="bg-green-500 text-white font-semibold py-2 px-6 rounded-md shadow-md transition duration-300 hover:bg-green-600 hover:shadow-lg">
+                  <button className="bg-violet-500 text-white font-semibold py-2 px-6 rounded-md shadow-md transition duration-300 hover:bg-violet-600 hover:shadow-lg">
                     View Profile
                   </button>
                 </Link>

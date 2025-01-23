@@ -112,7 +112,7 @@ const MyBio = () => {
                           item?.role == 'user' ? 
                         <button onClick={()=>handlePremium(item)} className="btn-xs hover:bg-orange-500 rounded-lg text-white font-semibold bg-red-500">Make Premium</button>
                          : 
-                        <button className="btn-xs hover:bg-green-300 rounded-lg  text-green-700 font-semibold  bg-green-200">Premium data</button>
+                        <button className="btn-xs hover:bg-violet-300 rounded-lg  text-violet-700 font-semibold  bg-violet-200">Premium data</button>
 
                         }
                 </td>
@@ -139,7 +139,7 @@ const MyBio = () => {
     {/* Content Section */}
     <div className="p-8">
       <div className="flex flex-wrap gap-4 mb-6">
-        <div className="flex items-center gap-2 px-4 py-2 bg-green-100 text-green-800 font-medium rounded-full shadow-sm">
+        <div className="flex items-center gap-2 px-4 py-2 bg-violet-100 text-violet-800 font-medium rounded-full shadow-sm">
           <FaBriefcase className="text-lg" />
           {occupation || "Occupation Unknown"}
         </div>
