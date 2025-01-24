@@ -91,8 +91,7 @@ const Favourate = () => {
                    {item.age}
                 </td>
                 <td className="px-6 py-4 flex gap-3 items-center ">
-                   <button onClick={()=>handleDelete(item._id)} className="btn btn-xs p-1 text-white rounded-xl  bg-red-500"><FaTrash></FaTrash></button>
-                    <Link  to={`/view/${item._id}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
+                   <button onClick={()=>handleDelete(item._id)} className="btn btn-xs  text-white rounded-lg bg-red-500"><FaTrash></FaTrash></button>
                 </td>
             </tr>)
             }

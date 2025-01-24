@@ -17,9 +17,9 @@ import {
   FaFaceGrinHearts,
   FaUsers,
 } from "react-icons/fa6";
-import { TbPremiumRights } from "react-icons/tb";
+import { TbBrandStorytel, TbPremiumRights } from "react-icons/tb";
 import { ImportContacts, IosShare } from "@mui/icons-material";
-import { BiCommentDetail, BiLogOut } from "react-icons/bi";
+import { BiCommentDetail, BiHeart, BiLogOut } from "react-icons/bi";
 import { IoHomeSharp } from "react-icons/io5";
 import { IoIosContacts } from "react-icons/io";
 import { MdRateReview } from "react-icons/md";
@@ -74,6 +74,11 @@ const Dashboard = () => {
               <NavLink to="/dashboard/admincontact">
                 <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
                   <ImportContacts></ImportContacts> Approved Contact
+                </li>
+              </NavLink>
+              <NavLink to="/dashboard/story">
+                <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
+                  <BiHeart></BiHeart> Succes Story
                 </li>
               </NavLink>
               <button

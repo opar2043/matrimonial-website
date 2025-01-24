@@ -3,7 +3,6 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-
 import {
   QueryClient,
   QueryClientProvider,
@@ -35,6 +34,7 @@ import AdminHome from "./Components/Dashboard/AdminHome/AdminHome.jsx";
 import Premimum from "./Components/Dashboard/Premium/Premimum.jsx";
 import AdminRoute from "./Components/MainCompo/Provider/AdminRoute.jsx";
 import PrivateRoute from "./Components/MainCompo/Biodata/privateRoute/PrivateRoute.jsx";
+import SuccesstoryTable from "./Components/Dashboard/AdminSucces/SuccesstoryTable.jsx";
 
 const router = createBrowserRouter([
   {
@@ -76,7 +76,7 @@ const router = createBrowserRouter([
         element: <PrivateRoute><ViewData></ViewData></PrivateRoute>,
         loader: ({ params }) =>
           fetch(`https://make-marriege-server.vercel.app/biodata/${params.id}`),
-      },
+      }
     ],
   },
   {
@@ -137,6 +137,12 @@ const router = createBrowserRouter([
         path: '/dashboard/premium',
         element: <AdminRoute> 
           <PrivateRoute><Premimum></Premimum></PrivateRoute>
+        </AdminRoute>
+      },
+      {
+        path: "/dashboard/story",
+        element: <AdminRoute> 
+          <PrivateRoute><SuccesstoryTable></SuccesstoryTable></PrivateRoute>
         </AdminRoute>
       }
     ],

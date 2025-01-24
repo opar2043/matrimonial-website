@@ -107,7 +107,7 @@ const Payment = ({id}) => {
               userEmail: user?.email                     
             }
 
-            console.log(payment);
+            // console.log(payment);
 
             axiosSecure.post('/payments', payment)
             .then(res => {

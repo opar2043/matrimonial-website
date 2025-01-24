@@ -5,7 +5,7 @@ const Cards = ({ bio }) => {
   const { gender, image, division, occupation, age, _id, name , biodataId } = bio || {}
 
   return (
-    <div className="flex justify-center p-4">
+    <div className="flex justify-center p-4 ">
       <div
         href="#"
         className="block border rounded-lg p-4 shadow-sm shadow-indigo-100"
@@ -34,14 +34,14 @@ const Cards = ({ bio }) => {
               <div>
               <p className="sr-only bg-violet-200">Gender</p>
               <span className="text-sm font-semibold text-gray-500 rounded-md py-0.5 px-4 bg-violet-200">
-                {gender}
+                {gender || 'Not Given'}
               </span>
               </div>
 
             </div>
           </div>
 
-          <div className="mt-6 flex items-center gap-8 text-xs">
+          <div className="mt-6 flex items-center justify-center gap-8 text-xs">
             <div className="sm:inline-flex sm:shrink-0 sm:items-center sm:gap-2">
               <svg
                 className="size-4 text-indigo-700"

@@ -99,7 +99,7 @@ const ContuctApproved = () => {
                         {item?.status == 'pending' ? <button
                         className="px-3 py-1 font-semibold bg-purple-100 text-purple-600 rounded-md text-sm hover:bg-purple-300"                       
                         onClick={()=>handleApproved(item._id)}> Pending</button> : <button 
-                        className="px-3 font-semibold py-1 bg-violet-200 text-violet-600 rounded-lg text-sm hover:bg-violet-300"                     
+                        className="px-3 font-semibold py-1 bg-green-200 text-green-600 rounded-lg text-sm hover:bg-violet-300"                     
                         >{item.status}</button>}
                 </td>
                 
@@ -115,7 +115,7 @@ const ContuctApproved = () => {
         </tbody>
       </table>
     </div>
-  </div>
+    </div>
   )
 }
 

@@ -449,7 +449,7 @@ const Editbio = () => {
           type="submit"
           className="mt-6 w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition"
         >
-          Submit
+          Save Biodata
         </button>
       </form>
     </div>

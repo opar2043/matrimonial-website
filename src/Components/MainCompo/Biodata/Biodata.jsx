@@ -101,13 +101,13 @@ const Biodata = () => {
         </div>
 
         {/* Reset Button */}
-        <div className="flex flex-row gap-3">
+   
           
-        <div className="flex items-center">
-          <button onClick={sortBiodata} className="btn-outline btn">
+        <div className=" flex flex-col md:flex-row gap-2">
+          <button onClick={sortBiodata} className="btn-outline btn border-2 border-violet-500 text-violet-600">
             Sort by Age
           </button>
-          </div>
+          
           <button
             onClick={reset}
             className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-violet-500 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform"

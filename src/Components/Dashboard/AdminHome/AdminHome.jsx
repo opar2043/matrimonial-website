@@ -13,7 +13,7 @@ import {
 
 const AdminHome = () => {
   const [state, refetch, isLoading] = useState();
-  const { biodata, users, successStory, revinew, boys, girls } = state || {};
+  const { biodata, users, successStory, revinew, boys, girls , premium } = state || {};
 
 
   const pieData = [
@@ -104,7 +104,7 @@ const AdminHome = () => {
             {/* Success Stories */}
             <StatCard
               icon={<FaHistory />}
-              title="Success Stories"
+              title="Successfull story"
               value={successStory}
               description="Happiest Endings"
               gradient="from-yellow-500 to-orange-500"
@@ -116,7 +116,7 @@ const AdminHome = () => {
               title="Total Revenue"
               value={`$${revinew}`}
               description="From $240.94"
-              gradient="from-indigo-500 to-purple-500"
+              gradient="from-indigo-500  to-purple-500"
             />
           </div>
         </div>

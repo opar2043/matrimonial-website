@@ -77,8 +77,8 @@ const Navbar = () => {
           </ul>
         </div>
         <div className="flex gap-2 items-center"> 
-          <img src="https://i.ibb.co.com/zSqDs7b/logo.jpg" className="md:w-9 w-5 rounded-full" />
-          <h2 className="text-2xl md:text-4xl font-bold ">Sha<span className="text-yellow-300">adi</span>.com</h2>
+          <img src="https://i.ibb.co.com/zSqDs7b/logo.jpg" className="md:w-9 w-4 rounded-full" />
+          <h2 className="text-lg md:text-4xl font-bold ">Sha<span className="text-yellow-300">adi</span>.com</h2>
           </div>
       </div>
       <div className="navbar-center hidden lg:flex">
@@ -98,7 +98,7 @@ const Navbar = () => {
         ) : (
           <button
             onClick={handleLogOut}
-            className="bg-gradient-to-r flex gap-1 items-center from-yellow-400 to-orange-500 text-white font-semibold py-2 px-4 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105"
+            className="bg-gradient-to-r flex gap-1 items-center from-yellow-400 to-orange-500 text-white font-semibold py-2  px-3 rounded-lg shadow-md hover:shadow-lg transform hover:scale-105"
           >
            <FaLock></FaLock>  Log Out
           </button>

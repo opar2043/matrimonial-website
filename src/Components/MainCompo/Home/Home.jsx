@@ -12,9 +12,6 @@ const Home = () => {
   const [premiumbiodata, refetch, isLoading] = usePremiumBiodata([]) || [];
   const [bioidata , setBiodata] = useState([])
 
-  // const sortData = [...premiumbiodata].sort((a, b) => a.age - b.age);
-  // setBiodata(sortData);
-
   console.log(premiumbiodata);
   return (
     <div>

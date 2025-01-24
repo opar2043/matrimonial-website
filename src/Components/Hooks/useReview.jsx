@@ -5,6 +5,7 @@ const useReview = () => {
 
   useEffect(() => {
     fetch("https://make-marriege-server.vercel.app/success")
+    // fetch('story.json')
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

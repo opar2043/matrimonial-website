@@ -39,6 +39,8 @@ const GotMarried = () => {
                           });
                         }
         })
+
+        form.reset()
     }
 
 
