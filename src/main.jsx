@@ -36,11 +36,13 @@ import AdminRoute from "./Components/MainCompo/Provider/AdminRoute.jsx";
 import PrivateRoute from "./Components/MainCompo/Biodata/privateRoute/PrivateRoute.jsx";
 import SuccesstoryTable from "./Components/Dashboard/AdminSucces/SuccesstoryTable.jsx";
 import Bikash from "./Components/MainCompo/Contact/Bikash.jsx";
+import Error from "./Components/MainCompo/Root/Error.jsx";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement: <Error></Error>,
     children: [
       {
         path: "/",

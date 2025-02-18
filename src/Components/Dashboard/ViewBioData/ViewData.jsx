@@ -185,7 +185,7 @@ const ViewData = () => {
 
           <div className="mt-8 flex flex-col md:flex-row gap-4">
             <div className="w-full">
-              { !isRole ? (
+              {!isRole ? (
                 <Link className="w-full" to={`/checkout/${id}`}>
                   <button className="w-full px-4 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 flex items-center justify-center gap-2">
                     {" "}
@@ -194,11 +194,12 @@ const ViewData = () => {
                 </Link>
               ) : (
                 <button className="w-full px-4 py-3 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 text-white font-semibold rounded-lg hover:from-yellow-500 hover:via-yellow-600 hover:to-yellow-700 flex items-center justify-center gap-2">
-                  <FaUser></FaUser>  {isPending?.status == "pending" ? 'Premium User' :  'You Paid This'}
+                  <FaUser></FaUser>{" "}
+                  {isPending?.status == "pending"
+                    ? "Premium User"
+                    : "You Paid This"}
                 </button>
-              )} 
-
-                  
+              )}
             </div>
             <div className="w-full">
               <button

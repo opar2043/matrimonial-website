@@ -22,7 +22,9 @@ const Biodata = () => {
   // console.log(division);
 
   useEffect(() => {
-    fetch(`https://make-marriege-server.vercel.app/biodata?division=${division}&gender=${gender}`)
+    fetch(
+      `https://make-marriege-server.vercel.app/biodata?division=${division}&gender=${gender}`
+    )
       //  fetch("biodata.json")
       .then((res) => res.json())
       .then((data) => {
@@ -43,11 +45,12 @@ const Biodata = () => {
 
   return (
     <div className="bg-white shadow-lg rounded-lg p-6">
-    <h2 className="text-xl font-semibold text-gray-800 mb-4">Filter Options</h2>
+      <h2 className="text-xl font-semibold text-gray-800 mb-4">
+        Filter Options
+      </h2>
 
-    <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
+      <div className="flex flex-col md:flex-row gap-6 items-center justify-between">
         {/* Gender Selection */}
-
 
         <div className="flex gap-2 items-center justify-center">
           <div className="w-full sm:w-auto">
@@ -72,61 +75,53 @@ const Biodata = () => {
             </select>
           </div>
 
-
-        {/* Division Selection */}
-        <div className="w-full  sm:w-auto">
-          <label
-            htmlFor="division"
-            className="block text-sm font-medium text-gray-700 mb-1"
-          >
-            Division
-          </label>
-          <select
-            id="division"
-            onChange={(e) => setDivision(e.target.value)}
-            name="permanentDivision"
-            required
-            className="w-full sm:w-auto border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          >
-            <option value="" disabled>
-              Select Division
-            </option>
-            {divisions.map((division) => (
-              <option key={division} value={division}>
-                {division}
+          {/* Division Selection */}
+          <div className="w-full  sm:w-auto">
+            <label
+              htmlFor="division"
+              className="block text-sm font-medium text-gray-700 mb-1"
+            >
+              Division
+            </label>
+            <select
+              id="division"
+              onChange={(e) => setDivision(e.target.value)}
+              name="permanentDivision"
+              required
+              className="w-full sm:w-auto border border-gray-300 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+            >
+              <option value="" disabled>
+                Select Division
               </option>
-            ))}
-          </select>
-        </div>
+              {divisions.map((division) => (
+                <option key={division} value={division}>
+                  {division}
+                </option>
+              ))}
+            </select>
+          </div>
         </div>
 
         {/* Reset Button */}
-   
-          
+
         <div className=" flex flex-col md:flex-row gap-2">
-          <button onClick={sortBiodata} className="btn-outline btn border-2 border-violet-500 text-violet-600">
+          <button
+            onClick={sortBiodata}
+            className="btn-outline btn border-2 border-violet-500 text-violet-600"
+          >
             Sort by Age
           </button>
-          
+
           <button
             onClick={reset}
             className="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-violet-500 text-white font-medium py-2 px-6 rounded-lg shadow-md hover:shadow-lg hover:scale-105 transition-transform"
           >
             Reset All
           </button>
-
         </div>
-       
- 
+      </div>
 
-       {/* sort by age  */}
-
-      
-
-
-    </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4">
         {biodata.map((bio, idx) => (
           <Card key={idx} bio={bio}></Card>
         ))}
