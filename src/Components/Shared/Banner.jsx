@@ -15,7 +15,7 @@ import banner8 from '../../assets/Banner/banner-15.avif'
 const Banner = () => {
   return (
     <div className='bg-cover my-10'>
-<Carousel className="h-full bg-cover relative">
+<Carousel className="h-full bg-cover relative mx-auto">
   <div className="relative">
     <img src={banner1} className="w-full h-full object-cover" />
     <p className="absolute bottom-5 left-5 text-lg md:text-2xl lg:text-3xl text-white bg-gradient-to-r from-black/70 to-black/30 px-4  py-2 rounded-md shadow-md">
@@ -23,7 +23,7 @@ const Banner = () => {
     </p>
   </div>
 
-  <div className="relative">
+  {/* <div className="relative">
     <img src={banner8} className="w-full h-full object-cover" />
     <p className="absolute bottom-5 left-5 text-lg md:text-2xl lg:text-3xl text-white bg-gradient-to-r from-black/70 to-black/30 px-4 py-2 rounded-md shadow-md">
       Make Your Life Better...
@@ -35,7 +35,7 @@ const Banner = () => {
     <p className="absolute bottom-5 left-5 text-lg md:text-2xl lg:text-3xl text-white bg-gradient-to-r from-black/70 to-black/30 px-4 py-2 rounded-md shadow-md">
       Explore Endless Possibilities...
     </p>
-  </div>
+  </div> */}
 
   <div className="relative">
     <img src={banner7} className="w-full h-full object-cover" />
@@ -58,7 +58,7 @@ const Banner = () => {
     </p>
   </div>
 
-  <div className="relative">
+  {/* <div className="relative">
     <img src={banner5} className="w-full h-full object-cover" />
     <p className="absolute bottom-5 left-5 text-lg md:text-2xl lg:text-3xl text-white bg-gradient-to-r from-black/70 to-black/30 px-4 py-2 rounded-md shadow-md">
       Discover New Horizons...
@@ -70,7 +70,7 @@ const Banner = () => {
     <p className="absolute bottom-5 left-5 text-lg md:text-2xl lg:text-3xl text-white bg-gradient-to-r from-black/70 to-black/30 px-4 py-2 rounded-md shadow-md">
       Empowering Moments...
     </p>
-  </div>
+  </div> */}
 </Carousel>
 
     </div>

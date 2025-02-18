@@ -47,7 +47,7 @@ const Navbar = () => {
   );
 
   return (
-    <nav className="navbar bg-gradient-to-r from-violet-500 to-violet-700 text-white shadow-lg sticky top-0 z-50">
+    <nav className="navbar  px-14 bg-gradient-to-r from-violet-500 to-violet-700 text-white shadow-lg sticky top-0 z-50">
       <div className="navbar-start">
         <div className="dropdown">
           <button

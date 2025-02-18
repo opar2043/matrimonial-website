@@ -7,6 +7,8 @@ import HowItWork from "./HowItwork";
 import SuccessCounter from "./Success/SuccessCounter";
 import Successstory from "./Success/Successstory";
 import Cards from "../Biodata/Card";
+import Event from "./Event";
+import Benefits from "./Benefits";
 
 const Home = () => {
   const [premiumbiodata, refetch, isLoading] = usePremiumBiodata([]) || [];
@@ -34,6 +36,8 @@ const Home = () => {
             ))}
         </div>
       </div>
+      <Event></Event>
+      <Benefits></Benefits>
       {/* <PremiumBiodata premiumbiodata={premiumbiodata}></PremiumBiodata> */}
       <Successstory></Successstory>
     </div>

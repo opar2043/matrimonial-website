@@ -35,6 +35,7 @@ import Premimum from "./Components/Dashboard/Premium/Premimum.jsx";
 import AdminRoute from "./Components/MainCompo/Provider/AdminRoute.jsx";
 import PrivateRoute from "./Components/MainCompo/Biodata/privateRoute/PrivateRoute.jsx";
 import SuccesstoryTable from "./Components/Dashboard/AdminSucces/SuccesstoryTable.jsx";
+import Bikash from "./Components/MainCompo/Contact/Bikash.jsx";
 
 const router = createBrowserRouter([
   {
@@ -66,6 +67,10 @@ const router = createBrowserRouter([
       {
         path: "/login",
         element: <Login></Login>,
+      },
+      {
+        path: "/bikash/:tranId",
+        element: <Bikash></Bikash>
       },
       {
         path: "/register",

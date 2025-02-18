@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import useAxios from "../../Hooks/useAxios";
 import Swal from "sweetalert2";
 import useAuth from "../../Hooks/useAuth";
-import { useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import useBiodata from "../../Hooks/useBiodata";
 import useUser from "../../Hooks/useUser";
 
@@ -21,7 +21,7 @@ const Payment = ({id}) => {
 
   const [biodata] = useBiodata() || [];
   const data = biodata.find((bio) => bio._id === id);
-  console.log(data , 'data');
+  // console.log(data , 'data');
   //  const [users] = useUser()
   //  const userData = users && users.find((bio) => bio?.email === user.email);
   //  console.log(userData , 'payment email');
@@ -126,6 +126,37 @@ const Payment = ({id}) => {
         }
       }
   };
+  function handleBikash() {
+    const payment = {
+      price: price,
+      status: 'pending',
+      ownername: data?.name,
+      email: data?.email || 'user@gmail.com',
+      biodataId: data?.biodataId,
+      mobile: data?.mobile,
+      age: data?.age,
+      occupation: data?.occupation,
+      userEmail: user?.email
+    };
+  
+    // console.log(payment);
+  
+    fetch('https://make-marriege-server.vercel.app/order-bikash', {
+      method: 'POST', 
+      headers: {
+        'Content-Type': 'application/json' // Ensure the backend knows to expect JSON data
+      },
+      body: JSON.stringify(payment) // Convert the `payment` object to a JSON string
+    })
+    .then(res => res.json())
+    .then(data => {
+      window.location.replace(data.url)
+      console.log(data);
+    })
+  }
+  
+
+
   return (
 
 
@@ -197,6 +228,9 @@ const Payment = ({id}) => {
     >
       {isLoading ? "Processing..." : "Pay"}
     </button>
+    <Link to={'/bikash'}>
+     <button onClick={()=>handleBikash()}  className="btn btn-accent w-full mt-2">Pay with Bikash</button>
+    </Link>
 
     {/* Message Display */}
     {message && (
