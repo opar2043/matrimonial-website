@@ -37,6 +37,7 @@ import PrivateRoute from "./Components/MainCompo/Biodata/privateRoute/PrivateRou
 import SuccesstoryTable from "./Components/Dashboard/AdminSucces/SuccesstoryTable.jsx";
 import Bikash from "./Components/MainCompo/Contact/Bikash.jsx";
 import Error from "./Components/MainCompo/Root/Error.jsx";
+import Profile from "./Components/Dashboard/Profile/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
       {
         path: "/dashboard/create",
         element: <PrivateRoute><CreateBio></CreateBio></PrivateRoute>,
+      },
+      {
+        path: "/dashboard/profile",
+        element: <PrivateRoute><Profile></Profile></PrivateRoute>,
       },
       {
         path: "/dashboard/edit",

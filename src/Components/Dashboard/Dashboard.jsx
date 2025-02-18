@@ -1,5 +1,5 @@
 import React from "react";
-import { FaHome, FaTasks } from "react-icons/fa";
+import { FaHome, FaMapMarkerAlt, FaTasks } from "react-icons/fa";
 import {
   Link,
   NavLink,
@@ -14,7 +14,10 @@ import {
   FaBook,
   FaBookOpen,
   FaCertificate,
+  FaEnvelope,
   FaFaceGrinHearts,
+  FaPhone,
+  FaUser,
   FaUsers,
 } from "react-icons/fa6";
 import { TbBrandStorytel, TbPremiumRights } from "react-icons/tb";
@@ -27,6 +30,7 @@ import useBiodata from "../Hooks/useBiodata";
 const Dashboard = () => {
   // const {user} = useAuth();
   const { user, logoutUser, setUser } = useAuth();
+  console.log(user);
   const [biodata] = useBiodata();
   const navigate = useNavigate();
   const currentBidata =
@@ -43,7 +47,7 @@ const Dashboard = () => {
   }
 
   const CurrenUser = users?.find((u) => u.email == user?.email);
-  // console.log(CurrenUser);
+  // console.log(CurrenUser , ' current');
 
   const isAdmin = CurrenUser?.admin == "admin";
   // console.log(isAdmin);
@@ -53,7 +57,13 @@ const Dashboard = () => {
       {/* Sidebar */}
       <div className="bg-gradient-to-b from-sky-700 to-sky-500 text-white md:w-1/5 w-full p-6">
         <h2 className="text-2xl font-bold text-center mb-8">Dashboard</h2>
+       
         <ul className="flex flex-col gap-1">
+        <NavLink to="/dashboard/profile">
+                <li className="hover:bg-sky-600 px-4  flex justify-left gap-1 items-center py-2 rounded-lg transition">
+                  <FaUser></FaUser> Profile
+                </li> <hr />
+              </NavLink>
           {isAdmin ? (
             <>
               <NavLink to="/dashboard/adminhome">
@@ -73,7 +83,7 @@ const Dashboard = () => {
               </NavLink>
               <NavLink to="/dashboard/admincontact">
                 <li className="hover:bg-sky-600 flex justify-left gap-1 items-center px-4 py-2 rounded-lg transition">
-                  <ImportContacts></ImportContacts> Approved Contact
+                  <FaPhone></FaPhone> Approved Contact
                 </li>
               </NavLink>
               <NavLink to="/dashboard/story">
@@ -163,6 +173,8 @@ const Dashboard = () => {
             <FaTasks></FaTasks> Dashboard
           </h2>
         </div>
+
+        {/* User Info */}
         <div className="mt-8">
           <Outlet />
         </div>
